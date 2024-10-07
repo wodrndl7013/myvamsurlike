@@ -7,6 +7,9 @@ TagManager:
   - Monster
   - Weapon
   - Skill
+  - BasicWeapon
+  - Exp
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -18,9 +21,9 @@ TagManager:
   - Monster
   - Skill
   - Weapon
-  - 
-  - 
-  - 
+  - BasicWeapon
+  - Exp
+  - Ground
   - 
   - 
   - 
