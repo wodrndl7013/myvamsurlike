@@ -16,7 +16,7 @@ public class SkillInfo
 public class Skill : MonoBehaviour
 {
     public SkillInfo SkillInfo;  // Inspector에서 설정 가능한 SkillInfo
-    public PooledObjectType objectType = PooledObjectType.Skill_Bullet;
+    public PooledObjectType objectType;
     
     private Vector3 moveDirection;  // 처음 설정된 이동 방향
     private Vector3 startPosition;  // 시작 위치를 저장
@@ -56,7 +56,7 @@ public class Skill : MonoBehaviour
         if (Vector3.Distance(startPosition, transform.position) >= SkillInfo.AttackDistance)
         {
             isMoving = false;
-            ObjectPoolManager.Instance.ReturnToPool(PooledObjectType.Skill_Bullet, gameObject);
+            ObjectPoolManager.Instance.ReturnToPool(objectType, gameObject);
         }
     }
 

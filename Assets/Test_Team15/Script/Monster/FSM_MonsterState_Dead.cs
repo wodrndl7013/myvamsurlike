@@ -15,16 +15,15 @@ public class FSM_MonsterState_Dead : VMyState<FSM_MonsterState>
     protected override void EnterState()
     {
         MonsterSpawner.Instance.RemoveMonster(gameObject.GetInstanceID());
-        ObjectPoolManager.Instance.ReturnToPool(MonsterSpawner.Instance.objectType, gameObject);
     }
     
     protected override void ExcuteState()
     {
-        
+        //_monster.Fsm.ChangeState(FSM_MonsterState.FSM_MonsterState_Idle);
     }
     
     protected override void ExitState()
     {
-        
+        //_monster.currentHp = _monster.Hp;
     }
 }

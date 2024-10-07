@@ -229,7 +229,7 @@ Transform:
   m_GameObject: {fileID: 32875515}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -252,10 +252,13 @@ MonoBehaviour:
   Fsm: {fileID: 0}
   _rb: {fileID: 0}
   speed: 5
-  SkillList:
-  - {fileID: 824603317802601855, guid: 8dbed5ded5b387e40b5ff70ad2417dfd, type: 3}
-  currentSkill: {fileID: 0}
-  targetMonster: {fileID: 0}
+  BWList:
+  - {fileID: 3736903909887380871, guid: c6ea5ce536fcd8f4d91b447c5335d3fc, type: 3}
+  - {fileID: 1295273273359524425, guid: 782937461ad88d142804998e0d70e632, type: 3}
+  currentBW: {fileID: 1295273273359524425, guid: 782937461ad88d142804998e0d70e632,
+    type: 3}
+  BWCooltime: 0
+  currentCooltime: 0
 --- !u!114 &32875521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,7 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e69248a848adb74c92e584088907f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultState: 1
+  defaultState: 0
 --- !u!1 &268755376
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,14 +723,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToPool:
-  - type: 2
+  - type: 1
     prefab: {fileID: 5095609764936527374, guid: 850a1bd2dd0a9cd4bbfd55c4af9692d4,
       type: 3}
-    poolSize: 50
-  - type: 1
-    prefab: {fileID: 6763084142254913123, guid: 8dbed5ded5b387e40b5ff70ad2417dfd,
+    poolSize: 20
+  - type: 2
+    prefab: {fileID: 7095059176052332518, guid: c6ea5ce536fcd8f4d91b447c5335d3fc,
       type: 3}
-    poolSize: 5
+    poolSize: 10
+  - type: 3
+    prefab: {fileID: 8407444380026563546, guid: 782937461ad88d142804998e0d70e632,
+      type: 3}
+    poolSize: 10
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,7 +845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d509e48dce6dbeb4b8f1493fb08859a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectType: 2
+  objectType: 1
   innerRadius: 30
   outerRadius: 50
   spawnCount: 1

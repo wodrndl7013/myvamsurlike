@@ -9,6 +9,7 @@ public class Monster : CharacterBase<FSM_Monster>
     
     public float Speed = 3;
     public float Hp = 10;
+    public float currentHp;
     
     [NonSerialized]public bool isDead = false;
     
@@ -16,6 +17,12 @@ public class Monster : CharacterBase<FSM_Monster>
     {
         base.Awake();
         FindPlayer();
+        currentHp = Hp;
+    }
+
+    private void OnEnable()
+    {
+        currentHp = Hp;
     }
 
     void FixedUpdate()
@@ -51,13 +58,13 @@ public class Monster : CharacterBase<FSM_Monster>
 
     public void GetDamaged(float damage)
     {
-        Hp -= damage;
-        Debug.Log($"남은 HP {Hp}");
+        currentHp -= damage;
+        Debug.Log($"남은 HP {currentHp}");
     }
 
     void Update()
     {
-        if (!isDead && Hp < 0)
+        if (!isDead && currentHp <= 0)
         {
             Fsm.ChangeState(FSM_MonsterState.FSM_MonsterState_Dead);
         }

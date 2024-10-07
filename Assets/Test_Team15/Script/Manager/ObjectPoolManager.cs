@@ -5,8 +5,9 @@ using UnityEngine;
 public enum PooledObjectType
 {
     None,
-    Skill_Bullet,
-    Monster
+    Monster,
+    BW_Bullet,
+    BW_Melee
 }
 
 [System.Serializable]

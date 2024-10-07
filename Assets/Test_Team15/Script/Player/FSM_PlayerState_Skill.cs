@@ -15,12 +15,11 @@ public class FSM_PlayerState_Skill : VMyState<FSM_PlayerState>
 
     protected override void EnterState()
     {
-        if (_player.targetMonster != null && _player.currentSkill != null)
-        {
-            Vector3 targetPostiion = _player.targetMonster.transform.position;
-            Skill activeSkill = _player.currentSkill;
-            activeSkill.Initialize(targetPostiion, _player.transform.position);
-        }
+        GameObject spawnWeapon = ObjectPoolManager.Instance.SpawnFromPool(_player.currentBW.projectileType, transform.position, Quaternion.identity);
+        BasicWeapon bw = spawnWeapon.GetComponent<BasicWeapon>(); 
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, Camera.main.WorldToScreenPoint(transform.position).z));
+        bw.SetPositionInfo(mouseWorldPos, transform.position);
     }
     
     protected override void ExcuteState()
@@ -30,9 +29,6 @@ public class FSM_PlayerState_Skill : VMyState<FSM_PlayerState>
     
     protected override void ExitState()
     {
-        if (_player.currentSkill != null)
-        {
-            _player.currentSkill.StartCooltime();
-        }
+        _player.StartCooltime();
     }
 }
