@@ -63,17 +63,14 @@ public class Monster : CharacterBase<FSM_Monster>
         if (!isDead && Hp < 0)
         {
             Fsm.ChangeState(FSM_MonsterState.FSM_MonsterState_Dead);
-            Die(); // 몬스터가 죽으면 처리
         }
     }
     
-    void Die()
+    public void Die()
     {
         isDead = true;
         // 경험치 오브 생성
         SpawnExperienceOrb();
-        // 몬스터 제거
-        Destroy(gameObject);
     }
     
     void SpawnExperienceOrb()

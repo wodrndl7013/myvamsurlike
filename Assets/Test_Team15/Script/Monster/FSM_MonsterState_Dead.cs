@@ -15,6 +15,7 @@ public class FSM_MonsterState_Dead : VMyState<FSM_MonsterState>
     protected override void EnterState()
     {
         MonsterSpawner.Instance.RemoveMonster(gameObject.GetInstanceID());
+        _monster.Die(); // 몬스터가 죽으면 처리
     }
     
     protected override void ExcuteState()
