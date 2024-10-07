@@ -9,20 +9,17 @@ public class Monster : CharacterBase<FSM_Monster>
     
     public float Speed = 3;
     public float Hp = 10;
-    public float currentHp;
-    
+   
     [NonSerialized]public bool isDead = false;
+    
+    // 경험치 오브 프리팹 (인스펙터에서 연결)
+    public GameObject experienceOrbPrefab;
+    public int experienceAmount = 10; // 몬스터가 줄 경험치 양
     
     void Awake()
     {
         base.Awake();
         FindPlayer();
-        currentHp = Hp;
-    }
-
-    private void OnEnable()
-    {
-        currentHp = Hp;
     }
 
     void FixedUpdate()
@@ -58,15 +55,43 @@ public class Monster : CharacterBase<FSM_Monster>
 
     public void GetDamaged(float damage)
     {
-        currentHp -= damage;
-        Debug.Log($"남은 HP {currentHp}");
+        Hp -= damage;
+        Debug.Log($"남은 HP {Hp}");
     }
-
     void Update()
     {
-        if (!isDead && currentHp <= 0)
+        if (!isDead && Hp < 0)
         {
             Fsm.ChangeState(FSM_MonsterState.FSM_MonsterState_Dead);
+            Die(); // 몬스터가 죽으면 처리
+        }
+    }
+    
+    void Die()
+    {
+        isDead = true;
+        // 경험치 오브 생성
+        SpawnExperienceOrb();
+        // 몬스터 제거
+        Destroy(gameObject);
+    }
+    
+    void SpawnExperienceOrb()
+    {
+        // 경험치 오브를 몬스터의 현재 위치에 스폰
+        if (experienceOrbPrefab != null)
+        {
+            GameObject experienceOrb = Instantiate(experienceOrbPrefab, transform.position, Quaternion.identity);
+            ExperienceOrb orbScript = experienceOrb.GetComponent<ExperienceOrb>();
+            if (orbScript != null)
+            {
+                // 경험치 오브에 경험치 양을 설정
+                orbScript.experienceAmount = experienceAmount;
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Experience orb prefab not assigned.");
         }
     }
 }
