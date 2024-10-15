@@ -48,5 +48,10 @@ public class BasicWeapon_Melee : BasicWeapon
             Monster monster = other.GetComponent<Monster>();
             monster.GetDamaged(Info.Damage);
         }
+        else if (other.CompareTag("Boss"))
+        {
+            Boss boss = other.GetComponent<Boss>();
+            boss.GetDamaged(Info.Damage);
+        }
     }
 }

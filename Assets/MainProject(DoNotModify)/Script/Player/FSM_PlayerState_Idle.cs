@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FSM_PlayerState_Idle : VMyState<FSM_PlayerState>
 {
-    public override FSM_PlayerState StateEnum => FSM_PlayerState.FSM_Character1State_Idle;
+    public override FSM_PlayerState StateEnum => FSM_PlayerState.FSM_PlayerState_Idle;
     private Player _player;
 
     void Awake()
@@ -22,7 +22,7 @@ public class FSM_PlayerState_Idle : VMyState<FSM_PlayerState>
     {
         if (!_player.IsCooltiming())
         {
-            _player.Fsm.ChangeState(FSM_PlayerState.FSM_Character1State_Skill);
+            _player.Fsm.ChangeState(FSM_PlayerState.FSM_PlayerState_Skill);
         }
     }
     

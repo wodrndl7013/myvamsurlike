@@ -8,7 +8,8 @@ public enum PooledObjectType
     Monster,
     ExpOrb,
     BW_Bullet,
-    BW_Melee
+    BW_Melee,
+    BS_TimeBomb
 }
 
 [System.Serializable]
@@ -56,7 +57,17 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
             Debug.LogWarning("Pool with type " + type + " doesn't exist.");
             return null;
         }
-
+        
+        // 풀에 객체가 남아 있는지 확인
+        if (poolDictionary[type].Count == 0)
+        {
+            // 풀에 객체가 없으면 새로운 객체 생성
+            PooledObject pooledObject = objectsToPool.Find(x => x.type == type);
+            GameObject newObject = Instantiate(pooledObject.prefab);
+            newObject.SetActive(false);
+            poolDictionary[type].Enqueue(newObject);
+        }
+            
         GameObject objectToSpawn = poolDictionary[type].Dequeue();
 
         objectToSpawn.SetActive(true);
@@ -98,22 +109,22 @@ public interface IPooledObject
 }
 
 // 사용예시
-public class Bullet : MonoBehaviour, IPooledObject
-{
-    public void OnObjectSpawn()
-    {
-        // 총알이 스폰될 때 초기화 로직
-    }
-
-    public void OnObjectReturn()
-    {
-        // 총알이 풀로 반환될 때 정리 로직
-    }
-
-    private void Update()
-    {
-        // 총알 이동 로직
-        // 만약 총알이 수명이 다했거나 충돌했다면:
-        // ObjectPoolManager.Instance.ReturnToPool(PooledObjectType.Bullet, gameObject);
-    }
-}
+// public class Bullet : MonoBehaviour, IPooledObject
+// {
+//     public void OnObjectSpawn()
+//     {
+//         // 총알이 스폰될 때 초기화 로직
+//     }
+//
+//     public void OnObjectReturn()
+//     {
+//         // 총알이 풀로 반환될 때 정리 로직
+//     }
+//
+//     private void Update()
+//     {
+//         // 총알 이동 로직
+//         // 만약 총알이 수명이 다했거나 충돌했다면:
+//         // ObjectPoolManager.Instance.ReturnToPool(PooledObjectType.Bullet, gameObject);
+//     }
+// }
