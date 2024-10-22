@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class ExperienceOrb : MonoBehaviour
 {
-    public PooledObjectType projectileType;
-    
     public int experienceAmount = 10; // 경험치 양
     public float detectionRange = 5f; // 플레이어 감지 범위
     public float moveSpeed = 10f; // 경험치 볼이 날아가는 속도
@@ -47,7 +45,7 @@ public class ExperienceOrb : MonoBehaviour
             ExperienceManager.Instance.AddExperience(experienceAmount);
             
             //경험치 볼 제거
-            ObjectPoolManager.Instance.ReturnToPool(PooledObjectType.ExpOrb, gameObject);
+            ObjectPoolManager.Instance.ReturnToPool("ExperienceOrb", gameObject);
         }
     }
 }

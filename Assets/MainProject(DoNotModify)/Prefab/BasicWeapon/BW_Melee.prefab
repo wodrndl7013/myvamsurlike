@@ -123,4 +123,5 @@ MonoBehaviour:
     Cooltime: 1
     Damage: 5
     Speed: 50
+  projectileData: {fileID: 11400000, guid: 6c9483830cba4584aa05859224be5539, type: 2}
   projectileType: 4

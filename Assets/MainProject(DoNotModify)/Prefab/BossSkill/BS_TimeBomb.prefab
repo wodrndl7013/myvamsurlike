@@ -47,11 +47,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Info:
-    AttackDistance: 10
+    AttackDistance: 20
     Cooltime: 5
     Damage: 5
     Speed: 1
-  projectileType: 5
+  projectileData: {fileID: 11400000, guid: 4b5ec34d58ffc3b4d9aa686a4d4ffcd0, type: 2}
+  projectileType: BS_TimeBomb
   time: 3
 --- !u!1 &3627832094904564702
 GameObject:

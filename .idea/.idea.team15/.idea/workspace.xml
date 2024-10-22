@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d1e569ac-78f9-426d-9b7c-8331941ba52d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Test_Team15/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Test_Team15/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Test_Team15/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Test_Team15/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.team15-main/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.team15-main/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.team15-main/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.team15/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.team15/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.test_team15_test/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.test_team15_test/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.test_team15_test/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/BasicWeapon/BW_Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/BasicWeapon/BW_Bullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/BasicWeapon/BW_Melee.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/BasicWeapon/BW_Melee.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/BossSkill/BS_TimeBomb.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/BossSkill/BS_TimeBomb.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Boss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Boss.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Monster.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Monster.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Scenes/MainScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/BasicWeapon/BasicWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/BasicWeapon/BasicWeapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/BasicWeapon/BasicWeapon_Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/BasicWeapon/BasicWeapon_Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/BasicWeapon/BasicWeapon_Melee.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/BasicWeapon/BasicWeapon_Melee.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Exp/ExperienceOrb.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Exp/ExperienceOrb.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/General/CharacterBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/General/CharacterBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/MonsterSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/MonsterSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/ObjectPoolManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/ObjectPoolManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/Boss.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/Boss.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/BossSkill/BossSkill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/BossSkill/BossSkill.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/BossSkill/BossSkill_TimeBomb.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/BossSkill/BossSkill_TimeBomb.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/FSM_Boss_Idle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/FSM_Boss_Idle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/FSM_MonsterState_Dead.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/FSM_MonsterState_Dead.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Monster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Monster.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2nnA8fwqYQMsdShMiMRxb4tG9hn" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Mr.Hwang",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\HwangMinSoeng\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\HwangMinSoeng\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\HwangMinSoeng\\AppData\\Local\\Symbols\\src"
+    ]
+  }
+}]]></component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="G:\Unity\Unity\Hub\Editor\2022.3.30f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath G:\Class\Git_my\team15 -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="G:\Class\Git_my\team15" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="G:\Unity\Unity\Hub\Editor\2022.3.30f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath G:\Class\Git_my\team15 -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="G:\Class\Git_my\team15" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d1e569ac-78f9-426d-9b7c-8331941ba52d" name="Changes" comment="" />
+      <created>1729598313325</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1729598313325</updated>
+      <workItem from="1729598317638" duration="649000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
+    <option name="unityProject" value="true" />
+    <option name="unityProjectFolder" value="true" />
+  </component>
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>
