@@ -23,6 +23,8 @@ public class SoundManager : Singleton<SoundManager>
 
     private Dictionary<SoundType, AudioClip> audios = new Dictionary<SoundType, AudioClip>();
     private AudioSource audioSource;
+    public AudioSource bgmSource; // 배경음악 AudioSource Lee 추가 2024.10.22
+    public AudioSource sfxSource; // 효과음 AudioSource Lee 추가 2024.10.22
     
     private void Awake()
     {
@@ -66,5 +68,21 @@ public class SoundManager : Singleton<SoundManager>
 
         // 선택된 SoundType의 사운드 재생
         PlaySound(randomType);
+    }
+    
+    public void SetBGMVolume(float volume) //Lee 추가 2024.10.22
+    {
+        if (bgmSource != null)
+        {
+            bgmSource.volume = volume;
+        }
+    }
+    
+    public void SetSFXVolume(float volume) //Lee 추가 2024.10.22
+    {
+        if (sfxSource != null)
+        {
+            sfxSource.volume = volume;
+        }
     }
 }
