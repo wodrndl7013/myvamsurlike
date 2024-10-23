@@ -23,7 +23,10 @@ public class Boss : CharacterBase<FSM_Boss>
         base.Awake();
         FindPlayer();
         currentHp = Hp;
-
+    }
+    
+    private void Start()
+    {
         SettingBS();
     }
 
@@ -63,10 +66,11 @@ public class Boss : CharacterBase<FSM_Boss>
     {
         isDead = true;
     }
-
+    
     private void SettingBS() // 인스펙터에서 설정된 BS 에 기반하여 쿨타임 설정
     {
         BSCooltime = currentBS.Info.Cooltime;
+        currentBS.projectileType = currentBS.projectileData.objectTypeName;
     }
 
     public bool IsTargetInRange()
@@ -83,6 +87,8 @@ public class Boss : CharacterBase<FSM_Boss>
     public void StartCooltime() // 쿨타임 시작
     {
         StartCoroutine(StartCooltime_Internal());
+
+        ObjectPoolManager.Instance.SpawnFromPool("Skill_A", transform.position, Quaternion.identity);
     }
 
     IEnumerator StartCooltime_Internal() // 쿨타임 코루틴

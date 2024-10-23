@@ -6,7 +6,12 @@ using UnityEngine;
 public class BasicWeapon_Bullet : BasicWeapon
 {
     private bool isMoving = false;  // 이동 중 여부 체크
-
+    
+    void Awake()
+    {
+        base.Awake();
+    }
+    
     public override void SetPositionInfo(Vector3 mousePos, Vector3 spawnPos) // 무기 스폰 위치
     {
         startPosition = spawnPos;

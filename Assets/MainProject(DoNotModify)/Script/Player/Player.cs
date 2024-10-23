@@ -17,11 +17,19 @@ public class Player : CharacterBase<FSM_Player>
     public float BWCooltime; // 장착된 무기에 설정된 쿨타임 참조 변수
     public float currentCooltime; // 실제 쿨타임을 관장할 변수
     
+    // !!!! 10.19 수정 !!!!
     void Awake()
     {
         base.Awake();
-        SettingBW();
     }
+    // !!!! 수정 종료 !!!!
+
+    // !!!! 10.19 추가 !!!!
+    private void Start()
+    {
+        SettingBW(); // BasicWeapon 의 이름 설정이 Awake 에서 일어나므로 플레이어가 받아올 때 그보다 늦게 하기 위해 Start 에서 진행
+    }
+    // !!!! 추가 종료 !!!!
 
     private void FixedUpdate()
     {
@@ -40,11 +48,14 @@ public class Player : CharacterBase<FSM_Player>
     {
         Debug.Log("데미지 받음");
     }
-
+    
+    // !!!! 10.19 수정 !!!!
     private void SettingBW() // 인스펙터에서 설정된 BW 에 기반하여 쿨타임 설정
     {
         BWCooltime = currentBW.Info.Cooltime;
+        currentBW.projectileType = currentBW.projectileData.objectTypeName; // 프리팹에서 설정이 잘못되어 있을 경우를 방지
     }
+    // !!!! 수정 종료 !!!!
     
     public bool IsCooltiming() // 쿨타임 중인지 확인
     {

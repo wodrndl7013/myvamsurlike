@@ -7,10 +7,10 @@ public class BossSkill_TimeBomb : BossSkill
 {
     private Transform timeBomb;
     public float time = 3f;
-
+    
     private void Awake()
     {
-        projectileType = PooledObjectType.BS_TimeBomb;
+        base.Awake();
         timeBomb = transform.Find("timeBomb");
 
         if (timeBomb != null)

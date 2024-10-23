@@ -19,7 +19,7 @@ public class FSM_Boss_Idle : VMyState<FSM_BossState>
 
     protected override void ExcuteState()
     {
-        if (!_boss.IsCooltiming() && !_boss.IsTargetInRange())
+        if (!_boss.IsCooltiming() && _boss.IsTargetInRange())
         {
             _boss.Fsm.ChangeState(FSM_BossState.FSM_BossState_Skill);
         }

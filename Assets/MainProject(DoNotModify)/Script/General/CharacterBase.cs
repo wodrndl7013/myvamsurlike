@@ -15,3 +15,14 @@ public class CharacterBase<T> : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 }
+
+public interface IMonsterType
+{
+    MonsterType MonsterType { get; }
+}
+
+public enum MonsterType
+{
+    Normal,
+    Elite
+}

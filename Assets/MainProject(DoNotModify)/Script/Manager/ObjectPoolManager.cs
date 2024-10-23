@@ -2,73 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PooledObjectType
-{
-    None,
-    Monster,
-    ExpOrb,
-    BW_Bullet,
-    BW_Melee,
-    BS_TimeBomb
-}
-
-[System.Serializable]
-public class PooledObject
-{
-    public PooledObjectType type;
-    public GameObject prefab;
-    public int poolSize;
-}
-
 public class ObjectPoolManager : Singleton<ObjectPoolManager>
 {
-    public List<PooledObject> objectsToPool;
+    public List<PooledObjectData> objectsToPool;
 
-    private Dictionary<PooledObjectType, Queue<GameObject>> poolDictionary;
+    private Dictionary<string, Queue<GameObject>> poolDictionary;
     
-    void Awake()
+    void Start()
     {
         InitializePools();
     }
 
     private void InitializePools()
     {
-        poolDictionary = new Dictionary<PooledObjectType, Queue<GameObject>>();
+        poolDictionary = new Dictionary<string, Queue<GameObject>>();
 
-        foreach (PooledObject item in objectsToPool)
+        foreach (PooledObjectData data in objectsToPool)
         {
             Queue<GameObject> objectPool = new Queue<GameObject>();
 
-            for (int i = 0; i < item.poolSize; i++)
+            for (int i = 0; i < data.poolSize; i++)
             {
-                GameObject obj = Instantiate(item.prefab);
+                GameObject obj = Instantiate(data.prefab);
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
             }
 
-            poolDictionary.Add(item.type, objectPool);
+            poolDictionary.Add(data.objectTypeName, objectPool);
         }
     }
     
-    public GameObject SpawnFromPool(PooledObjectType type, Vector3 position, Quaternion rotation)
+    public GameObject SpawnFromPool(string objectTypeName, Vector3 position, Quaternion rotation)
     {
-        if (!poolDictionary.ContainsKey(type))
+        // 오류 방지용 임시 코드
+        if (poolDictionary == null)
         {
-            Debug.LogWarning("Pool with type " + type + " doesn't exist.");
+            Debug.Log("풀매니저 비어있음");
+            return null;
+        }
+        // 임시 코드 종료
+        
+        if (!poolDictionary.ContainsKey(objectTypeName))
+        {
+            Debug.LogWarning("Pool with type " + objectTypeName + " doesn't exist.");
             return null;
         }
         
         // 풀에 객체가 남아 있는지 확인
-        if (poolDictionary[type].Count == 0)
+        if (poolDictionary[objectTypeName].Count == 0)
         {
             // 풀에 객체가 없으면 새로운 객체 생성
-            PooledObject pooledObject = objectsToPool.Find(x => x.type == type);
+            PooledObjectData pooledObject = objectsToPool.Find(x => x.objectTypeName == objectTypeName);
             GameObject newObject = Instantiate(pooledObject.prefab);
             newObject.SetActive(false);
-            poolDictionary[type].Enqueue(newObject);
+            poolDictionary[objectTypeName].Enqueue(newObject);
         }
             
-        GameObject objectToSpawn = poolDictionary[type].Dequeue();
+        GameObject objectToSpawn = poolDictionary[objectTypeName].Dequeue();
 
         objectToSpawn.SetActive(true);
         objectToSpawn.transform.position = position;
@@ -83,7 +73,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
         return objectToSpawn;
     }
     
-    public void ReturnToPool(PooledObjectType type, GameObject objectToReturn)
+    public void ReturnToPool(string type, GameObject objectToReturn)
     {
         if (!poolDictionary.ContainsKey(type))
         {
