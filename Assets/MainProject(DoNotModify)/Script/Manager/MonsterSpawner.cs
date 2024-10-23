@@ -12,7 +12,7 @@ public class MonsterSpawner : Singleton<MonsterSpawner>
     public float outerRadius = 30f;     // 스폰 가능한 외부 반지름
     public int spawnCount = 1;          // 초당 생성할 오브젝트 수
     public float spawnInterval = 1f;    // 오브젝트 생성 간격 (초당)
-    public Transform movingObject;      // 기준이 되는 계속 움직이는 오브젝트
+    private Transform movingObject;      // 기준이 되는 계속 움직이는 오브젝트(플레이어)
 
     [NonSerialized] public Dictionary<int, GameObject> MonsterInstance = new ();
     
@@ -28,10 +28,20 @@ public class MonsterSpawner : Singleton<MonsterSpawner>
     private float spawnRateB = 0f;
     public bool firstWave = true; // 첫 웨이브인지 확인
 
+    private void Awake()
+    {
+        SettingPlayer();
+    }
+    
     private void Start()
     {
         SettingList();
         StartCoroutine(SpawnObjects());
+    }
+
+    void SettingPlayer()
+    { 
+        movingObject = GameObject.FindWithTag("Player").transform;
     }
     
     void SettingList() // 풀 매니저에 등록된 Data 중 Monster 만 가져와 저장
