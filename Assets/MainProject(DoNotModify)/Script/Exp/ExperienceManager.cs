@@ -14,7 +14,8 @@ public class ExperienceManager : Singleton<ExperienceManager>
     
     public Slider experienceBar; // 경험치 바 슬라이더
     public TextMeshProUGUI levelText; // 레벨 텍스트
-    
+    public AbilityManager abilityManager; // 어빌리티 매니저 참조 2024.10.22 Lee 추가
+    public Player player; // 플레이어 참조 2024.10.22 Lee 추가
     private void Start()
     {
         // 경험치 바와 레벨 텍스트 초기화
@@ -70,5 +71,11 @@ public class ExperienceManager : Singleton<ExperienceManager>
         
         UpdateExperienceBar(); // 레벨업 후 경험치 바 업데이트
         UpdateLevelText(); // 레벨업 후 레벨 텍스트 업데이트
+        
+        // 레벨업 시 AbilityManager 호출 2024.10.22 Lee 추가
+        if (abilityManager != null)
+        {
+            abilityManager.ShowAbilitySelection();
+        }
     }
 }
