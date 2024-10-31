@@ -9,6 +9,7 @@ public class ExperienceOrb : MonoBehaviour
     public float detectionRange = 5f; // 플레이어 감지 범위
     public float moveSpeed = 10f; // 경험치 볼이 날아가는 속도
     private Transform player; // 플레이어의 위치
+    public string orbType; // 오브 타입 (예: "ExperienceOrb_Basic", "ExperienceOrb_Advanced", "ExperienceOrb_Premium")
 
     private void Start()
     {
@@ -45,7 +46,7 @@ public class ExperienceOrb : MonoBehaviour
             ExperienceManager.Instance.AddExperience(experienceAmount);
             
             //경험치 볼 제거
-            ObjectPoolManager.Instance.ReturnToPool("ExperienceOrb", gameObject);
+            ObjectPoolManager.Instance.ReturnToPool(orbType, gameObject);
         }
     }
 }

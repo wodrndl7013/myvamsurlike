@@ -17,14 +17,24 @@ public class Monster : CharacterBase<FSM_Monster>, IMonsterType
     [NonSerialized]public bool isDead = false;
     
     // 경험치 오브 프리팹 (인스펙터에서 연결)
-    public GameObject experienceOrbPrefab;
-    public int experienceAmount = 10; // 몬스터가 줄 경험치 양
+    public TimerManager timerManager; // TimerManager 레퍼런스, 인스펙터에서 설정 필요
+    public GameObject experienceOrbPrefab_Basic; // 기본 오브 프리팹
+    public GameObject experienceOrbPrefab_Advanced; // 고급 오브 프리팹
+    public GameObject experienceOrbPrefab_Premium; // 최고급 오브 프리팹
     
     void Awake()
     {
         base.Awake();
         FindPlayer();
         currentHp = Hp;
+        if (timerManager == null)
+        {
+            timerManager = FindObjectOfType<TimerManager>();
+            if (timerManager == null)
+            {
+                Debug.LogWarning("TimerManager가 씬에 존재하지 않습니다. TimerManager를 추가해주세요.");
+            }
+        }
     }
     
     private void OnEnable()
@@ -85,20 +95,49 @@ public class Monster : CharacterBase<FSM_Monster>, IMonsterType
     
     void SpawnExperienceOrb()
     {
-        // 경험치 오브를 몬스터의 현재 위치에 스폰
-        if (experienceOrbPrefab != null)
+        float currentTime = Time.timeSinceLevelLoad; // 씬이 로드된 후 경과된 시간을 사용
+        Debug.Log($"Monster - Current Time Retrieved: {currentTime}"); // 디버그 로그 추가+
+        
+        string orbType = "ExperienceOrb_Basic";
+
+        if (currentTime >= 10 && currentTime < 20) // 10분 ~ 20분 사이
         {
-            GameObject experienceOrb = ObjectPoolManager.Instance.SpawnFromPool("ExperienceOrb", transform.position, Quaternion.identity);
+            float randomValue = UnityEngine.Random.value; // 0.0f ~ 1.0f 사이의 난수 생성
+            if (randomValue <= 0.3f)
+            {
+                orbType = "ExperienceOrb_Advanced"; // 30% 확률로 고급 오브 드랍
+            }
+        }
+        else if (currentTime >= 20) // 20분 이후
+        {
+            float randomValue = UnityEngine.Random.value; // 0.0f ~ 1.0f 사이의 난수 생성
+            if (randomValue <= 0.1f)
+            {
+                orbType = "ExperienceOrb_Premium"; // 10% 확률로 최고급 오브 드랍
+            }
+            else if (randomValue <= 0.4f)
+            {
+                orbType = "ExperienceOrb_Advanced"; // 30% 확률로 고급 오브 드랍
+            }
+        }
+
+        // 오브를 ObjectPoolManager에서 가져오기
+        GameObject experienceOrb = ObjectPoolManager.Instance.SpawnFromPool(orbType, transform.position, Quaternion.identity);
+
+        if (experienceOrb != null)
+        {
             ExperienceOrb orbScript = experienceOrb.GetComponent<ExperienceOrb>();
             if (orbScript != null)
             {
-                // 경험치 오브에 경험치 양을 설정
-                orbScript.experienceAmount = experienceAmount;
+                    orbScript.experienceAmount = orbType == "ExperienceOrb_Basic" ? 10 :
+                        orbType == "ExperienceOrb_Advanced" ? 20 : 30;
+                    orbScript.orbType = orbType; // 오브 타입 설정
             }
         }
         else
         {
-            Debug.LogWarning("Experience orb prefab not assigned.");
+            Debug.LogWarning($"{orbType} 생성에 실패했습니다.");
         }
     }
+
 }

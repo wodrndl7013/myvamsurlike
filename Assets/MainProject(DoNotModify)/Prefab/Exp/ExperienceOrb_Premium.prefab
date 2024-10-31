@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3516892102842997680}
   - component: {fileID: 6616687253464674309}
   m_Layer: 11
-  m_Name: ExperienceOrb
+  m_Name: ExperienceOrb_Premium
   m_TagString: Exp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: ba94daf514b160f4a9cdbd2d91fc9dec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -118,7 +118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e6d74a98c5cba74cb186597c574d891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileType: 2
   experienceAmount: 10
   detectionRange: 5
   moveSpeed: 10
