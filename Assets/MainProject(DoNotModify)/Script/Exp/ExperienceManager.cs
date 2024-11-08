@@ -27,7 +27,6 @@ public class ExperienceManager : Singleton<ExperienceManager>
     public void AddExperience(int amount)
     {
         currentExperience += amount;
-        Debug.Log("경험치 추가: " + amount);
 
         CheckLevelUp();
         UpdateExperienceBar(); // 경험치 바 업데이트

@@ -26,3 +26,9 @@ public enum MonsterType
     Normal,
     Elite
 }
+
+// !!! 10.23 수정
+public interface IDamageable
+{
+    void GetDamaged(float damage);
+}

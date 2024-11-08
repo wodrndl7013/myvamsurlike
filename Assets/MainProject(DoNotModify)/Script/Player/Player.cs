@@ -22,14 +22,11 @@ public class Player : CharacterBase<FSM_Player>
     private float currentHealth;   // 현재 HP
     public PlayerHealthBar healthBar; // PlayerHealthBar 참조
     
-    // !!!! 10.19 수정 !!!!
     void Awake()
     {
         base.Awake();
     }
-    // !!!! 수정 종료 !!!!
-
-    // !!!! 10.19 추가 !!!!
+    
     private void Start()
     {
         SettingBW(); // BasicWeapon 의 이름 설정이 Awake 에서 일어나므로 플레이어가 받아올 때 그보다 늦게 하기 위해 Start 에서 진행
@@ -45,7 +42,6 @@ public class Player : CharacterBase<FSM_Player>
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth); // 체력을 최대 체력으로 제한
         Debug.Log($"Player 체력 회복: {currentHealth}/{maxHealth}");
     }
-    // !!!! 추가 종료 !!!!
 
     private void FixedUpdate()
     {
@@ -67,10 +63,8 @@ public class Player : CharacterBase<FSM_Player>
 
     public void TakeDamage(float damage) // 데미지 받을 때
     {
-        Debug.Log("데미지 받음");
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        Debug.Log($"Player took {damage} damage. Current HP: {currentHealth}");
         
         // HP 바 업데이트
         if (healthBar != null)
@@ -86,7 +80,6 @@ public class Player : CharacterBase<FSM_Player>
     
     private void Die() // 플레이어가 죽었을 때
     {
-        Debug.Log("Player died");
         GameManager.Instance.GameOver();
     }
     

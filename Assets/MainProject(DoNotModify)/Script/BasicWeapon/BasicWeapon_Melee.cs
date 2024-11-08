@@ -45,18 +45,4 @@ public class BasicWeapon_Melee : BasicWeapon
             MoveTowardsTarget();
         }
     }
-    
-    private void OnTriggerEnter(Collider other) // 충돌시, 충돌한 몬스터의 데미지 로직 가져옴
-    {
-        if (other.CompareTag("Monster"))
-        {
-            Monster monster = other.GetComponent<Monster>();
-            monster.GetDamaged(Info.Damage);
-        }
-        else if (other.CompareTag("Boss"))
-        {
-            Boss boss = other.GetComponent<Boss>();
-            boss.GetDamaged(Info.Damage);
-        }
-    }
 }

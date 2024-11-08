@@ -36,7 +36,6 @@ public class PauseManager : MonoBehaviour
     // 게임 재개 함수
     public void ResumeGame()
     {
-        Debug.Log("게임이 재개되었습니다.");
         pauseMenu.SetActive(false); // 일시정지 메뉴 비활성화
         Time.timeScale = 1f; // 게임 시간 재개
         isPaused = false;

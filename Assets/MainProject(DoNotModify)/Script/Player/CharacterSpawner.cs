@@ -12,7 +12,6 @@ public class CharacterSpawner : MonoBehaviour
         {
             // 선택한 캐릭터 프리팹을 스폰 위치에 생성
             Instantiate(CharacterManager.Instance.selectedCharacterPrefab, spawnPosition, Quaternion.identity);
-            Debug.Log("Player가 스폰되었습니다.");
         }
         else
         {

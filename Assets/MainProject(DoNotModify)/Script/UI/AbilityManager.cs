@@ -6,7 +6,6 @@ using TMPro;
 public class AbilityManager : MonoBehaviour
 {
     public GameObject abilitySelectionPanel; // 능력 선택 패널
-    public List<Ability> abilities; // 가능한 능력 리스트
     public Transform abilityCardContainer; // 능력 카드들을 담는 컨테이너
     public GameObject abilityCardPrefab; // 능력 카드 프리팹
 
@@ -36,44 +35,29 @@ public class AbilityManager : MonoBehaviour
         }
 
         // 무작위로 능력 3개를 선택해 카드 생성
-        List<Ability> randomAbilities = GetRandomAbilities(3);
-        foreach (Ability ability in randomAbilities)
+        List<ItemData> randomAbilities = WeaponManager.Instance.GetRandomItemDataList(3);
+        foreach (ItemData ability in randomAbilities)
         {
             GameObject card = Instantiate(abilityCardPrefab, abilityCardContainer);
             // 카드 UI 설정
-            card.transform.Find("NameText").GetComponent<TextMeshProUGUI>().text = ability.abilityName;
-            card.transform.Find("DescriptionText").GetComponent<TextMeshProUGUI>().text = ability.description;
-            card.transform.Find("Icon").GetComponent<Image>().sprite = ability.icon;
+            card.transform.Find("NameText").GetComponent<TextMeshProUGUI>().text = ability.itemName;
+            card.transform.Find("DescriptionText").GetComponent<TextMeshProUGUI>().text = JsonManager.Instance.PrintLeveUpText(ability.itemName);
+            card.transform.Find("Icon").GetComponent<Image>().sprite = ability.itemIcon;
 
             Button selectButton = card.transform.Find("SelectButton").GetComponent<Button>();
             selectButton.onClick.AddListener(() => SelectAbility(ability));
         }
     }
 
-    void SelectAbility(Ability ability)
+    void SelectAbility(ItemData ability)
     {
         // 능력을 플레이어에게 적용
-        ability.ApplyEffect(player);
+        WeaponManager.Instance.LevelUpdate(ability.itemName);
 
         // 패널 비활성화
         abilitySelectionPanel.SetActive(false);
         
         // 게임을 다시 재개하기 위해 Time.timescale을 1로 설정
         Time.timeScale = 1f;
-    }
-
-    List<Ability> GetRandomAbilities(int count)
-    {
-        List<Ability> selectedAbilities = new List<Ability>();
-        List<Ability> availableAbilities = new List<Ability>(abilities);
-
-        for (int i = 0; i < count; i++)
-        {
-            int randomIndex = Random.Range(0, availableAbilities.Count);
-            selectedAbilities.Add(availableAbilities[randomIndex]);
-            availableAbilities.RemoveAt(randomIndex);
-        }
-
-        return selectedAbilities;
     }
 }

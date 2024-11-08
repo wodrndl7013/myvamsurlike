@@ -54,13 +54,11 @@ public class RewardManager : Singleton<RewardManager>
         {
             // 자석 아이템 드랍
             Instantiate(magnetItemPrefab, position, Quaternion.identity);
-            Debug.Log("자석 아이템 드랍!");
         }
         else if (randomValue <= healthDropRate + magnetDropRate)
         {
             // 회복 아이템 드랍
             Instantiate(healthItemPrefab, position, Quaternion.identity);
-            Debug.Log("회복 아이템 드랍!");
         }
         else
         {

@@ -10,7 +10,6 @@ public class HealthItem : ItemBase
         if (playerScript != null)
         {
             playerScript.Heal(healAmount); // 플레이어 체력 회복
-            Debug.Log($"Player의 체력이 {healAmount}만큼 회복되었습니다.");
         }
         else
         {

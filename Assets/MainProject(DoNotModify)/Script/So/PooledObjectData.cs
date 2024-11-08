@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewPooledObject", menuName = "Pooling/PooledObject")]
+[CreateAssetMenu(fileName = "NewPooledObject", menuName = "SO/PooledObjectData")] // !!!! 10.23 수정 !!!!
 public class PooledObjectData : ScriptableObject
 {
     public string objectTypeName; // 오브젝트 타입을 구분하기 위한 이름
@@ -13,8 +13,5 @@ public class PooledObjectData : ScriptableObject
     private void Awake()
     {
         objectTypeName = this.name;
-        Debug.Log($"{this.name}설정완료");
     }
 }
-
-

@@ -49,13 +49,11 @@ public class GameManager : Singleton<GameManager>
     public void StartGame()
     {
         SceneManager.LoadScene("StageSelect"); // StageSelect 씬으로 이동
-        Debug.Log("스테이지 선택 화면으로 이동");
     }
 
     // 게임 종료 버튼 클릭 시 호출될 메서드
     public void ExitGame()
     {
-        Debug.Log("게임 종료");
         Application.Quit(); // 게임 종료
     }
 
@@ -68,7 +66,6 @@ public class GameManager : Singleton<GameManager>
         }
         Time.timeScale = 0f; // 게임 정지
         isGameOver = true;   // 게임 오버 플래그 설정
-        Debug.Log("게임 오버");
     }
     
     public void RestartGame()
@@ -103,7 +100,6 @@ public class GameManager : Singleton<GameManager>
         }
         Time.timeScale = 0f; // 게임 정지
         isPaused = true;     // 일시정지 플래그 설정
-        Debug.Log("게임 일시정지");
     }
 
     // 게임 재개
@@ -115,7 +111,6 @@ public class GameManager : Singleton<GameManager>
         }
         Time.timeScale = 1f; // 게임 속도 정상화
         isPaused = false;    // 일시정지 해제
-        Debug.Log("게임 재개");
     }
 
     // 환경설정 메뉴 열기
@@ -124,7 +119,6 @@ public class GameManager : Singleton<GameManager>
         if (settingsPanel != null && !isGameOver)
         {
             settingsPanel.SetActive(true);
-            Debug.Log("환경설정 메뉴 열기");
         }
     }
 
@@ -134,7 +128,6 @@ public class GameManager : Singleton<GameManager>
         if (settingsPanel != null)
         {
             settingsPanel.SetActive(false);
-            Debug.Log("환경설정 메뉴 닫기");
         }
     }
 

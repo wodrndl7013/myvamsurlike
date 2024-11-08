@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : CharacterBase<FSM_Monster>, IMonsterType
+public class Monster : CharacterBase<FSM_Monster>, IMonsterType, IDamageable
 {
     public MonsterType monsterType; // 인스펙터에서 타입 지정
     public MonsterType MonsterType => monsterType; // 인스펙터에서 지정한 타입을 가져와서 해당 오브젝트의 타입으로 설정, FSM 전역에서 사용할때는 해당 변수를 사용
@@ -64,16 +64,6 @@ public class Monster : CharacterBase<FSM_Monster>, IMonsterType
 
     public void Die()
     {
-        // 타입 설정 예시
-        // if (MonsterType == MonsterType.Normal)
-        // {
-        //     // 일반 몬스터 사망시 로직 처리
-        // }
-        // else if (MonsterType == MonsterType.Elite)
-        // {
-        //     // 엘리트 몬스터 사망시 로직 처리
-        // }
-
         isDead = true;
         
         if (monsterType == MonsterType.Normal)

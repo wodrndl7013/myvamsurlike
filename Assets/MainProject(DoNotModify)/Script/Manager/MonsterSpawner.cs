@@ -91,12 +91,10 @@ public class MonsterSpawner : Singleton<MonsterSpawner>
 
         if (randomValue <= spawnRateA)
         {
-            Debug.Log($"{monsterA.objectTypeName}생성");
             return ObjectPoolManager.Instance.SpawnFromPool(monsterA.objectTypeName, GetRandomPositionInDonut(), Quaternion.identity);
         }
         else
         {
-            Debug.Log($"{monsterB.objectTypeName}생성");
             return ObjectPoolManager.Instance.SpawnFromPool(monsterB.objectTypeName, GetRandomPositionInDonut(), Quaternion.identity);
         }
     }
@@ -174,7 +172,7 @@ public class MonsterSpawner : Singleton<MonsterSpawner>
             GameObject monster = MonsterInstance[instanceID];
             
             Monster monsterComponent = monster.GetComponent<Monster>();
-            Debug.Log($"{monsterComponent.MonsterType}");
+            
             if (monsterComponent.MonsterType == MonsterType.Normal) // 노말타입 몬스터의 경우, 오브젝트 풀로 Return 시키는 로직.
             {
                 string monsterName = monster.name.Replace("(Clone)", ""); // 오브젝트가 "프리팹이름(clone)" 으로 생성됨으로, (clone)부분을 지워 원본과 같은 이름을 만들어 받아옴
