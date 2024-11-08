@@ -34,13 +34,11 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     
     public GameObject SpawnFromPool(string objectTypeName, Vector3 position, Quaternion rotation)
     {
-        // 오류 방지용 임시 코드
         if (poolDictionary == null)
         {
             Debug.Log("풀매니저 비어있음");
             return null;
         }
-        // 임시 코드 종료
         
         if (!poolDictionary.ContainsKey(objectTypeName))
         {

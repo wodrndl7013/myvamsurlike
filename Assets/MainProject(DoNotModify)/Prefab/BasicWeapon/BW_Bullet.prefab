@@ -122,6 +122,6 @@ MonoBehaviour:
     AttackDistance: 15
     Cooltime: 1
     Damage: 5
-    Speed: 10
+    Speed: 20
   projectileData: {fileID: 11400000, guid: 06a244320e9205641a67dc15e4ae7e1d, type: 2}
-  projectileType: 3
+  projectileType: BW_Bullet

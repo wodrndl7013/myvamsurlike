@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : CharacterBase<FSM_Monster>, IMonsterType
+public class Monster : CharacterBase<FSM_Monster>, IMonsterType, IDamageable
 {
     public MonsterType monsterType; // 인스펙터에서 타입 지정
     public MonsterType MonsterType => monsterType; // 인스펙터에서 지정한 타입을 가져와서 해당 오브젝트의 타입으로 설정, FSM 전역에서 사용할때는 해당 변수를 사용
@@ -15,11 +15,7 @@ public class Monster : CharacterBase<FSM_Monster>, IMonsterType
     public float currentHp;
    
     [NonSerialized]public bool isDead = false;
-    
-    // 경험치 오브 프리팹 (인스펙터에서 연결)
-    public GameObject experienceOrbPrefab;
-    public int experienceAmount = 10; // 몬스터가 줄 경험치 양
-    
+
     void Awake()
     {
         base.Awake();
@@ -65,40 +61,21 @@ public class Monster : CharacterBase<FSM_Monster>, IMonsterType
         currentHp -= damage;
         Debug.Log($"남은 HP {currentHp}");
     }
-    
+
     public void Die()
     {
-        // 타입 설정 예시
-        // if (MonsterType == MonsterType.Normal)
-        // {
-        //     // 일반 몬스터 사망시 로직 처리
-        // }
-        // else if (MonsterType == MonsterType.Elite)
-        // {
-        //     // 엘리트 몬스터 사망시 로직 처리
-        // }
-        
         isDead = true;
-        // 경험치 오브 생성
-        SpawnExperienceOrb();
-    }
-    
-    void SpawnExperienceOrb()
-    {
-        // 경험치 오브를 몬스터의 현재 위치에 스폰
-        if (experienceOrbPrefab != null)
+        
+        if (monsterType == MonsterType.Normal)
         {
-            GameObject experienceOrb = ObjectPoolManager.Instance.SpawnFromPool("ExperienceOrb", transform.position, Quaternion.identity);
-            ExperienceOrb orbScript = experienceOrb.GetComponent<ExperienceOrb>();
-            if (orbScript != null)
-            {
-                // 경험치 오브에 경험치 양을 설정
-                orbScript.experienceAmount = experienceAmount;
-            }
+            RewardManager.Instance.DropExperienceOrb(transform.position);
         }
-        else
+        else if (monsterType == MonsterType.Elite)
         {
-            Debug.LogWarning("Experience orb prefab not assigned.");
+            RewardManager.Instance.DropAbilityItem(transform.position);
         }
+        
+        // 확률에 따라 랜덤 아이템 드랍
+        RewardManager.Instance.DropRandomItem(transform.position);
     }
 }

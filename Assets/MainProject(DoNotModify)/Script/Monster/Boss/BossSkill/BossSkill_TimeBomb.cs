@@ -42,7 +42,6 @@ public class BossSkill_TimeBomb : BossSkill
         if (timeBomb != null)
         {
             timeBomb.gameObject.SetActive(true);
-            Debug.Log("Time Bomb Activated!");
         }
 
         StartCoroutine(ReturnToPool());

@@ -6,14 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="d1e569ac-78f9-426d-9b7c-8331941ba52d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.team15/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.team15/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/UI/Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/UI/Canvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Scenes/MainScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Scenes/MainScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/CharacterSelection.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/CharacterSelection.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/UI/PauseMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/UI/PauseMenu.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Scenes/LobbyScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Scenes/LobbyScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Scenes/Stage1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Scenes/Stage1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Scenes/StageSelect.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Scenes/StageSelect.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Scenes/StageSelect.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Scenes/StageSelect.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Exp/ExperienceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Exp/ExperienceManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/SoundManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/CharacterManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/CharacterManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/BossSkill/timeBomb.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/BossSkill/timeBomb.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Monster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Monster.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Player/TriggerEnter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Player/TriggerEnter.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +27,15 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/OneDrive/문서/카카오톡 받은 파일/Weapon_ContinuousDamage.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/AbilitySelectionItem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/CharacterSpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/ItemBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/RewardManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Player/PlayerHealthBar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/UI/StageSelectButton.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -35,7 +49,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Mr.HwangLee&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Mr.Lee&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -103,6 +117,14 @@
       <workItem from="1729655149011" duration="10000" />
       <workItem from="1729655170191" duration="153000" />
       <workItem from="1729655341763" duration="1517000" />
+      <workItem from="1730288473920" duration="19000" />
+      <workItem from="1730288503700" duration="1391000" />
+      <workItem from="1730290998324" duration="2073000" />
+      <workItem from="1730302546678" duration="3439000" />
+      <workItem from="1730333477811" duration="2790000" />
+      <workItem from="1730679329977" duration="3319000" />
+      <workItem from="1730790853220" duration="1415000" />
+      <workItem from="1730866776867" duration="29731000" />
     </task>
     <servers />
   </component>

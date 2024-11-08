@@ -26,4 +26,13 @@ public abstract class BasicWeapon : MonoBehaviour
     {
         projectileType = projectileData.objectTypeName; // 플레이어에서도 설정 하지만, 무기 자체의 returnToPool 을 위해 무기에서도 설정해야함
     }
+    
+    public virtual void OnTriggerEnter(Collider other)
+    {
+        IDamageable damageable = other.GetComponent<IDamageable>();
+        if (damageable != null)
+        {
+            damageable.GetDamaged(Info.Damage);
+        }
+    }
 }

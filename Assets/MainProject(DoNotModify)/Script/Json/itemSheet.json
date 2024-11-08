@@ -1,0 +1,34 @@
+{
+  "itemSheet": [
+    {
+      "itemName": "AutoBullet",
+      "level0": "AutoBullet 을 장착합니다",
+      "level1": "AutoBullet 의 데미지가 증가합니다.",
+      "level2": "AutoBullet 의 데미지가 증가합니다.",
+      "level3": "AutoBullet 의 수가 증가합니다.",
+      "level4": "AutoBullet 의 데미지가 증가합니다.",
+      "level5": "AutoBullet 의 데미지가 증가합니다.",
+      "level6": "AutoBullet 의 데미지 및 수가 증가합니다."
+    },
+    {
+      "itemName": "FiendWheel",
+      "level0": "FiendWheel 을 장착합니다",
+      "level1": "FiendWheel 의 데미지가 증가합니다.",
+      "level2": "FiendWheel 의 데미지가 증가합니다.",
+      "level3": "FiendWheel 의 수가 증가합니다.",
+      "level4": "FiendWheel 의 데미지가 증가합니다.",
+      "level5": "FiendWheel 의 데미지가 증가합니다.",
+      "level6": "FiendWheel 의 데미지 및 수가 증가합니다."
+    },
+    {
+      "itemName": "HellfireLava",
+      "level0": "HellfireLava 을 장착합니다",
+      "level1": "HellfireLava 의 데미지가 증가합니다.",
+      "level2": "HellfireLava 의 데미지가 증가합니다.",
+      "level3": "HellfireLava 의 수가 증가합니다.",
+      "level4": "HellfireLava 의 데미지가 증가합니다.",
+      "level5": "HellfireLava 의 데미지가 증가합니다.",
+      "level6": "HellfireLava 의 데미지 및 수가 증가합니다."
+    }
+  ]
+}

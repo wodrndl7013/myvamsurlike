@@ -1,43 +1,35 @@
-using UnityEngine;
-using System.Collections;
-
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class Weapon : MonoBehaviour
+public abstract class Weapon : MonoBehaviour
 {
-    public string WeaponID { get; private set; }
-    public string WeaponName { get; private set; }
-    public WeaponType WeaponType { get; private set; }
-    public int CurrentLevel { get; private set; }
-    private WeaponData weaponData;
+    public string name;
+    public float damage;
+    public int count;
+    public float speed;
+    public float attackDistance;
+    public float cooldown;
+    public float duration;
+    public Transform playerTransform;
 
-    public void SetWeaponData(WeaponData data)
+    public void Start()
     {
-        weaponData = data;
-        WeaponID = data.weaponID;
-        WeaponName = data.weaponName;
-        WeaponType = data.weaponType;
-        CurrentLevel = 1; // 초기 레벨 설정
+        playerTransform = WeaponManager.Instance._player.transform;
     }
 
-    public virtual void UpgradeWeapon()
+    protected virtual void InputValue(GameObject spawnWeapon) // 데미지 정보를 오브젝트 풀에서 불러올 웨펀에 전달
     {
-        if (CurrentLevel < weaponData.attackDamage.Length)
-        {
-            CurrentLevel++;
-            Debug.Log($"Weapon {WeaponName} upgraded to level {CurrentLevel}. Attack Power: {GetCurrentAttackPower()}");
-        }
-        else
-        {
-            Debug.Log($"Weapon {WeaponName} is already at max level.");
-        }
+        Weapon weapon = spawnWeapon.GetComponent<Weapon>();
+        weapon.damage = damage;
+        weapon.duration = duration;
+        weapon.name = name;
     }
 
-    public int GetCurrentAttackPower()
+    public virtual void LevelUpSetting()
     {
-        return weaponData.attackDamage[CurrentLevel - 1];
+        // 레벨업시 조정이 필요한 무기들 사용(ex) FiendWheel 같이 ImpactDamage 를 순간 사용하고 풀로 돌리는 것이 아닌, 씬에 지속적으로 남아있게 하는 무기 종류의 경우)
     }
 }
-

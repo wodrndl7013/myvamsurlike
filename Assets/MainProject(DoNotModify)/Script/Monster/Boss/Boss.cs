@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Boss : CharacterBase<FSM_Boss>
+public class Boss : CharacterBase<FSM_Boss>, IDamageable
 {
     public Rigidbody target;
 
