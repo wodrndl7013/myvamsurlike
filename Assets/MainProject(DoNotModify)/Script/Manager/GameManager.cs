@@ -1,66 +1,172 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    public GameObject settingsPanel; // SettingsPanel 오브젝트를 연결
+    // UI 패널 연결
+    public GameObject settingsPanel;   // 설정 패널 (ESC 키로 활성화/비활성화)
+    public GameObject gameOverPanel;   // 게임 오버 패널
+    public GameObject pauseMenu;       // 일시정지 메뉴 패널
 
+    // 게임 상태 관리 플래그
+    private bool isGameOver = false;
+    private bool isPaused = false;
+
+    private void Start()
+    {
+        // 게임 시작 시 모든 패널 비활성화
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(false);
+        }
+        if (pauseMenu != null)
+        {
+            pauseMenu.SetActive(false);
+        }
+        if (settingsPanel != null)
+        {
+            settingsPanel.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        // ESC 키 입력 시 일시정지/재개 토글, 게임 오버 상태가 아닐 때만 작동
+        if (Input.GetKeyDown(KeyCode.Escape) && !isGameOver)
+        {
+            if (isPaused)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
+    }
+    
     // 게임 시작 버튼 클릭 시 호출될 메서드
     public void StartGame()
     {
-        SceneManager.LoadScene("StageSelect"); // "StageSelect" 이름의 씬을 로드
+        SceneManager.LoadScene("StageSelect"); // StageSelect 씬으로 이동
+        Debug.Log("스테이지 선택 화면으로 이동");
     }
 
-    // 환경설정 버튼 클릭 시 호출될 메서드
-    public void OpenSettings()
-    {
-        if (settingsPanel != null)
-        {
-            settingsPanel.SetActive(true);
-        }
-        Debug.Log("환경설정 메뉴 열기");
-    }
-
-    // 나가기 버튼 클릭 시 호출될 메서드
+    // 게임 종료 버튼 클릭 시 호출될 메서드
     public void ExitGame()
     {
         Debug.Log("게임 종료");
-        Application.Quit(); // 게임 종료 (에디터에서는 작동하지 않음)
+        Application.Quit(); // 게임 종료
+    }
+
+    // 게임 오버 상태 전환
+    public void GameOver()
+    {
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
+        }
+        Time.timeScale = 0f; // 게임 정지
+        isGameOver = true;   // 게임 오버 플래그 설정
+        Debug.Log("게임 오버");
+    }
+    
+    public void RestartGame()
+    {
+        // 게임 초기화를 위해 게임 오버 및 일시정지 상태 해제
+        isGameOver = false;
+        isPaused = false;
+
+        // 게임 오버 패널과 일시정지 패널 비활성화
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(false);
+        }
+        if (pauseMenu != null)
+        {
+            pauseMenu.SetActive(false);
+        }
+
+        // 게임 속도 초기화
+        Time.timeScale = 1f;
+
+        // 현재 씬 다시 로드
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    // 일시정지 상태 전환
+    public void PauseGame()
+    {
+        if (pauseMenu != null)
+        {
+            pauseMenu.SetActive(true);
+        }
+        Time.timeScale = 0f; // 게임 정지
+        isPaused = true;     // 일시정지 플래그 설정
+        Debug.Log("게임 일시정지");
+    }
+
+    // 게임 재개
+    public void ResumeGame()
+    {
+        if (pauseMenu != null)
+        {
+            pauseMenu.SetActive(false);
+        }
+        Time.timeScale = 1f; // 게임 속도 정상화
+        isPaused = false;    // 일시정지 해제
+        Debug.Log("게임 재개");
+    }
+
+    // 환경설정 메뉴 열기
+    public void OpenSettings()
+    {
+        if (settingsPanel != null && !isGameOver)
+        {
+            settingsPanel.SetActive(true);
+            Debug.Log("환경설정 메뉴 열기");
+        }
+    }
+
+    // 환경설정 메뉴 닫기
+    public void CloseSettings()
+    {
+        if (settingsPanel != null)
+        {
+            settingsPanel.SetActive(false);
+            Debug.Log("환경설정 메뉴 닫기");
+        }
     }
 
     // 특정 스테이지 씬으로 이동
     public void LoadStage(string stageName)
     {
-        if (!string.IsNullOrEmpty(stageName))
+        // Game Over 또는 일시정지 상태에서 호출되지 않도록 설정
+        if (!isGameOver)
         {
-            SceneManager.LoadScene(stageName); // 전달된 스테이지 이름으로 씬을 로드
-        }
-        else
-        {
-            Debug.LogWarning("올바른 스테이지 이름이 전달되지 않았습니다.");
-        }
-    }
-
-    // 스테이지 씬이 로드될 때 캐릭터를 스폰하는 함수
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        // 특정 스테이지 씬에서만 캐릭터 스폰
-        if (scene.name.StartsWith("Stage") && CharacterManager.Instance != null && CharacterManager.Instance.selectedCharacterPrefab != null)
-        {
-            // 캐릭터를 스폰할 위치
-            Vector3 spawnPosition = new Vector3(0, 0, 0); // 스폰할 위치 설정
-            Instantiate(CharacterManager.Instance.selectedCharacterPrefab, spawnPosition, Quaternion.identity);
-            Debug.Log($"스테이지 {scene.name}에서 캐릭터 스폰 완료.");
+            Time.timeScale = 1f; // 게임 속도 정상화
+            SceneManager.LoadScene(stageName);
+            Debug.Log($"스테이지 {stageName}로 이동");
         }
     }
 
-    private void OnEnable()
+    // 스테이지 선택 화면으로 이동
+    public void ExitToStageSelect()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded; // 씬이 로드될 때 이벤트 구독
+        Time.timeScale = 1f; // 게임 속도 정상화
+        SceneManager.LoadScene("StageSelect");
+        Debug.Log("스테이지 선택 화면으로 이동");
     }
 
-    private void OnDisable()
+    // Game Over 상태 확인 메서드 (다른 스크립트에서 호출 가능)
+    public bool IsGameOver()
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded; // 씬 로드 이벤트 구독 해제
+        return isGameOver;
+    }
+
+    // 일시정지 상태 확인 메서드 (다른 스크립트에서 호출 가능)
+    public bool IsPaused()
+    {
+        return isPaused;
     }
 }

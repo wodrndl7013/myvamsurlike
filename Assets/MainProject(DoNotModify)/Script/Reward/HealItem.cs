@@ -1,0 +1,20 @@
+using UnityEngine;
+
+public class HealthItem : ItemBase
+{
+    public float healAmount = 20f; // 회복할 체력량
+
+    protected override void ApplyEffect(GameObject player)
+    {
+        Player playerScript = player.GetComponent<Player>();
+        if (playerScript != null)
+        {
+            playerScript.Heal(healAmount); // 플레이어 체력 회복
+            Debug.Log($"Player의 체력이 {healAmount}만큼 회복되었습니다.");
+        }
+        else
+        {
+            Debug.LogWarning("Player 스크립트가 없습니다.");
+        }
+    }
+}
