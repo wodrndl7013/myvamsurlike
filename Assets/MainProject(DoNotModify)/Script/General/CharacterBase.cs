@@ -27,8 +27,8 @@ public enum MonsterType
     Elite
 }
 
-// !!! 10.23 수정
 public interface IDamageable
 {
     void GetDamaged(float damage);
+    void GetSlowed(float time);
 }

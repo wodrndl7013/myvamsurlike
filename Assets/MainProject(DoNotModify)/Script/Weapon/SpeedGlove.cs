@@ -14,8 +14,8 @@ public class SpeedGlove : Gear
         
     }
 
-    public override void Utility() 
+    public override void UpgradeBroadcast()
     {
-        // 무기들 공격 속도 업그레이드 로직 => 매니저에서 끌어오면 될듯?
+        throw new System.NotImplementedException();
     }
 }

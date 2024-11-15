@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class JsonManager : Singleton<JsonManager>
 {
     public TextAsset jsonFile; // 텍스트 데이터를 가진 JSON 파일
     private ItemSheet itemData; // JSON 데이터를 들고 있을 리스트
     private Dictionary<string, Dictionary<int, string>> levelUpText; // 실제 값이 저장된 딕셔너리
+    private Dictionary<string, string> itemNameDic;
 
     void Awake()
     {
@@ -15,14 +17,21 @@ public class JsonManager : Singleton<JsonManager>
     
     private void LoadJson() // json데이터 딕셔너리에 파싱
     {
+        if (jsonFile == null)
+        {
+            Debug.LogError("JSON 파일이 지정되지 않았습니다.");
+            return;
+        }
+        
         itemData = JsonUtility.FromJson<ItemSheet>(jsonFile.text);
 
         levelUpText = new Dictionary<string, Dictionary<int, string>>();
+        itemNameDic = new Dictionary<string, string>();
 
         for (int i = 0; i < itemData.itemSheet.Count; i++)
         {
-            string itemName = itemData.itemSheet[i].itemName;
-            levelUpText[itemName] = new Dictionary<int, string>
+            string itemID = itemData.itemSheet[i].itemID;
+            levelUpText[itemID] = new Dictionary<int, string>
             {
                 { 0, itemData.itemSheet[i].level0 },
                 { 1, itemData.itemSheet[i].level1 },
@@ -32,19 +41,27 @@ public class JsonManager : Singleton<JsonManager>
                 { 5, itemData.itemSheet[i].level5 },
                 { 6, itemData.itemSheet[i].level6 }
             };
+
+            itemNameDic[itemID] = itemData.itemSheet[i].itemName;
         }
     }
 
-    public string PrintLeveUpText(string itemName) // 무기의 현재 레벨에 맞는 문구 가져옴
+    public string PrintLeveUpText(string itemID) // 무기의 현재 레벨에 맞는 문구 가져옴
     {
-        Dictionary<int, string> dic = levelUpText[itemName];
-        int level = WeaponManager.Instance.GetLevel(itemName);
+        Dictionary<int, string> dic = levelUpText[itemID];
+        int level = WeaponManager.Instance.GetLevel(itemID);
         return dic[level];
+    }
+
+    public string PrintItemName(string itemID)
+    {
+        return itemNameDic[itemID];
     }
     
     [System.Serializable]
     public class Item
     {
+        public string itemID;
         public string itemName;
         public string level0;
         public string level1;

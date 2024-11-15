@@ -16,35 +16,34 @@ public class TriggerEnter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Monster") || other.CompareTag("Boss") && damageCoroutine == null)
+        // 몬스터 또는 보스와 충돌 시작, 코루틴이 없을 때만 실행
+        if ((other.CompareTag("Monster") || other.CompareTag("Boss")) && damageCoroutine == null)
         {
-            // 몬스터와 충돌이 시작되면 데미지 코루틴 시작
             damageCoroutine = StartCoroutine(DealDamageOverTime(other));
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Monster") || other.CompareTag("Boss") && damageCoroutine != null)
+        // 몬스터 또는 보스와 충돌 종료, 실행 중인 코루틴이 있을 경우 중지
+        if ((other.CompareTag("Monster") || other.CompareTag("Boss")) && damageCoroutine != null)
         {
-            // 몬스터와의 충돌이 끝나면 데미지 코루틴 중지
             StopCoroutine(damageCoroutine);
-            damageCoroutine = null;
+            damageCoroutine = null; // 참조 초기화
         }
     }
 
     private IEnumerator DealDamageOverTime(Collider other)
     {
-        // 충돌이 유지되는 동안 반복
+        // 충돌 중일 때 지속적으로 데미지를 입힘
         while (other != null && other.gameObject.activeInHierarchy)
         {
-            _player.TakeDamage(damageAmount);
+            _player.TakeDamage(damageAmount); // 플레이어에게 데미지 전달
 
-            // 데미지 간격만큼 대기
-            yield return new WaitForSeconds(damageInterval);
+            yield return new WaitForSeconds(damageInterval); // 데미지 간격 대기
         }
 
-        // 충돌이 종료된 경우
-        damageCoroutine = null; // 코루틴이 끝날 때 참조 초기화
+        // 충돌이 종료되면 코루틴을 종료
+        damageCoroutine = null; // 코루틴 참조 초기화
     }
 }

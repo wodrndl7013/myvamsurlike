@@ -17,6 +17,8 @@ public class Boss : CharacterBase<FSM_Boss>, IDamageable
     public BossSkill currentBS; // 현재 발동할 스킬
     public float BSCooltime; // 현재 발동할 스킬의 쿨타임
     public float currentCooltime; // 실제 쿨타임의 변화를 측정할 변수
+    
+    private bool isSlowed = false;
 
     void Awake()
     {
@@ -60,6 +62,21 @@ public class Boss : CharacterBase<FSM_Boss>, IDamageable
     {
         currentHp -= damage;
         Debug.Log($"남은 HP {currentHp}");
+    }
+    
+    public void GetSlowed(float time)
+    {
+        if (!isSlowed) StartCoroutine(Slowed(time));
+    }
+
+    IEnumerator Slowed(float time)
+    {
+        isSlowed = true;
+        float originSpeed = Speed;
+        Speed *= 0.5f;
+        yield return new WaitForSeconds(time);
+        Speed = originSpeed;
+        isSlowed = false; // 슬로우 효과 종료 후 플래그 초기화
     }
 
     public void Die()
