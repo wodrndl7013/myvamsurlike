@@ -13,6 +13,7 @@ public class Monster : CharacterBase<FSM_Monster>, IMonsterType, IDamageable
     public float Speed = 3;
     public float Hp = 10;
     public float currentHp;
+    public event Action OnDestroyed; // 이벤트 정의
    
     [NonSerialized]public bool isDead = false;
 
@@ -60,22 +61,44 @@ public class Monster : CharacterBase<FSM_Monster>, IMonsterType, IDamageable
     {
         currentHp -= damage;
         Debug.Log($"남은 HP {currentHp}");
+        
+        if (currentHp <= 0 && !isDead)
+        {
+            Die();
+        }
     }
 
     public void Die()
     {
         isDead = true;
         
+        // 이벤트 호출
+        OnDestroyed?.Invoke();
+        
+        // 몬스터 삭제
+        MonsterSpawner.Instance.RemoveMonster(gameObject.GetInstanceID());
+        
         if (monsterType == MonsterType.Normal)
         {
-            RewardManager.Instance.DropExperienceOrb(transform.position);
+            RewardManager.Instance.DropExperienceOrItem(transform.position);
         }
         else if (monsterType == MonsterType.Elite)
         {
             RewardManager.Instance.DropAbilityItem(transform.position);
         }
         
-        // 확률에 따라 랜덤 아이템 드랍
-        RewardManager.Instance.DropRandomItem(transform.position);
+        gameObject.SetActive(false); // Return to pool or disable
+    }
+    
+    // 이벤트를 추가할 수 있는 메서드
+    public void RegisterOnDestroyed(Action callback)
+    {
+        OnDestroyed += callback;
+    }
+
+    // 이벤트를 제거할 수 있는 메서드
+    public void UnregisterOnDestroyed(Action callback)
+    {
+        OnDestroyed -= callback;
     }
 }

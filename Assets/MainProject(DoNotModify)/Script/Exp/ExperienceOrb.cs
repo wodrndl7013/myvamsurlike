@@ -10,6 +10,8 @@ public class ExperienceOrb : MonoBehaviour
     public float moveSpeed = 10f; // 경험치 볼이 날아가는 속도
     private Transform player; // 플레이어의 위치
     public string orbType; // 오브 타입 (예: "ExperienceOrb_Basic", "ExperienceOrb_Advanced", "ExperienceOrb_Premium")
+    private bool isMagnetActive = false; // 자석 효과 활성화 여부
+
 
     private void Start()
     {
@@ -19,14 +21,27 @@ public class ExperienceOrb : MonoBehaviour
 
     private void Update()
     {
-        // 플레이어와의 거리 계산
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-        
-        // 플레이어와 일정 범위 내에 있으면 경험치 볼이 플레이어에게 날아감
-        if (distanceToPlayer <= detectionRange)
+        if (isMagnetActive)
         {
-            MoveToPlayer();
+            MoveToPlayer(); // 자석 효과가 활성화되었을 때 지속적으로 이동
         }
+        else
+        {
+            // 플레이어와의 거리 계산
+            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+            if (distanceToPlayer <= detectionRange)
+            {
+                MoveToPlayer(); // 감지 범위 내에서만 이동
+            }
+        }
+    }
+    
+    // 자석 효과 활성화
+    public void ActivateMagnetEffect(Transform playerTransform)
+    {
+        player = playerTransform;
+        isMagnetActive = true;
+        moveSpeed = 50f; // 자석 효과 시 더 빠르게 이동
     }
     
     // 플레이어를 향해 경험치 볼을 이동시키는 함수

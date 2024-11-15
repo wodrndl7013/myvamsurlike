@@ -7,10 +7,10 @@ public class RewardManager : Singleton<RewardManager>
     public GameObject experienceOrbPrefab_Premium;
     public GameObject magnetItemPrefab;  // 자석 아이템 프리팹
     public GameObject healthItemPrefab;  // 회복 아이템 프리팹
-    public AbilityManager abilityManager; // AbilityManager 참조 추가
+    public GameObject abilityItemPrefab; // 능력 선택 아이템 프리팹
 
-    private const float healthDropRate = 0.1f;   // 회복 아이템 드랍 확률 1%
-    private const float magnetDropRate = 0.1f;  // 자석 아이템 드랍 확률 0.1%
+    private const float healthDropRate = 0.01f;   // 회복 아이템 드랍 확률 1%
+    private const float magnetDropRate = 0.001f;  // 자석 아이템 드랍 확률 0.1%
 
     public void DropExperienceOrb(Vector3 position)
     {
@@ -35,18 +35,11 @@ public class RewardManager : Singleton<RewardManager>
 
     public void DropAbilityItem(Vector3 position)
     {
-        if (abilityManager != null)
-        {
-            abilityManager.ShowAbilitySelection();
-        }
-        else
-        {
-            Debug.LogWarning("AbilityManager가 설정되지 않았습니다.");
-        }
+        Instantiate(abilityItemPrefab, position, Quaternion.identity);
     }
 
     // 확률에 따라 단일 아이템 드랍
-    public void DropRandomItem(Vector3 position)
+    public void DropExperienceOrItem(Vector3 position)
     {
         float randomValue = Random.value;
 

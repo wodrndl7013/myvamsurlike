@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
 
-public class AbilityManager : MonoBehaviour
+public class AbilityManager : Singleton<AbilityManager>
 {
     public GameObject abilitySelectionPanel; // 능력 선택 패널
     public Transform abilityCardContainer; // 능력 카드들을 담는 컨테이너

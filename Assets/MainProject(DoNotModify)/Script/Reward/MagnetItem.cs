@@ -1,3 +1,4 @@
+// MagnetItem.cs
 using System.Collections;
 using UnityEngine;
 
@@ -5,25 +6,26 @@ public class MagnetItem : ItemBase
 {
     protected override void ApplyEffect(GameObject player)
     {
-        StartCoroutine(MoveExperienceOrbsToPlayer(player));
+        StartCoroutine(ActivateMagnetEffect(player.transform));
     }
 
-    private IEnumerator MoveExperienceOrbsToPlayer(GameObject player)
+    private IEnumerator ActivateMagnetEffect(Transform playerTransform)
     {
         GameObject[] experienceOrbs = GameObject.FindGameObjectsWithTag("Exp");
-        float pullSpeed = 5f; // 오브들이 이동하는 속도
 
-        while (experienceOrbs.Length > 0)
+        foreach (GameObject orb in experienceOrbs)
         {
-            foreach (GameObject orb in experienceOrbs)
+            if (orb != null)
             {
-                if (orb != null)
+                // 경험치 오브의 이동 기능을 직접 호출
+                ExperienceOrb experienceOrb = orb.GetComponent<ExperienceOrb>();
+                if (experienceOrb != null)
                 {
-                    orb.transform.position = Vector3.MoveTowards(orb.transform.position, player.transform.position, pullSpeed * Time.deltaTime);
+                    experienceOrb.ActivateMagnetEffect(playerTransform);
                 }
             }
-
-            yield return null;
         }
+
+        yield return null; // 한 프레임 대기
     }
 }
