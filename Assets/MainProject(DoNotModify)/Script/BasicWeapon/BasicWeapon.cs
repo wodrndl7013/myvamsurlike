@@ -35,4 +35,11 @@ public abstract class BasicWeapon : MonoBehaviour
             damageable.GetDamaged(Info.Damage);
         }
     }
+
+    public void Setting(float AttackDistance, float Damage, float Speed)
+    {
+        Info.AttackDistance = AttackDistance;
+        Info.Damage = Damage;
+        Info.Speed = Speed;
+    }
 }

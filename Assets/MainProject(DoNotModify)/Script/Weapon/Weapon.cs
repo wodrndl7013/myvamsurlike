@@ -26,6 +26,7 @@ public abstract class Weapon : MonoBehaviour
         weapon.damage = damage;
         weapon.duration = duration;
         weapon.name = name;
+        weapon.count = count;
     }
 
     public virtual void LevelUpSetting()

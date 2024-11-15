@@ -20,6 +20,11 @@ public class WeaponManager : Singleton<WeaponManager>
     
     private float angelProbability = 0.5f; // 초기 확률 50%
     private float demonProbability = 0.5f;
+
+    // Gear를 위한 타입별 활성화된 무기 리스트
+    private List<Weapon> AngelWeapons = new();
+    private List<Weapon> DemonWeapons = new();
+    
     void Awake()
     {
         Setting();
@@ -81,6 +86,48 @@ public class WeaponManager : Singleton<WeaponManager>
         return itemLeveles[itemType];
     }
 
+    private float CalculateDamage(ItemData itemData, int level) // 데미지 계산식
+    {
+        if (itemData.itemType == ItemData.ItemType.Angel)
+        {
+            if (ItemDic["DMGBuff_Angel"].Item2.activeSelf)
+            { 
+                int dmgBuffLevel = GetLevel("DMGBuff_Angel"); 
+                return (itemData.baseDamage + (itemData.baseDamage * itemData.damages[level - 1])) * ItemDic["DMGBuff_Angel"].Item1.damages[dmgBuffLevel - 1];
+            }
+            else
+            {
+                return itemData.baseDamage + (itemData.baseDamage * itemData.damages[level - 1]);
+            }
+        }
+        else if (itemData.itemType == ItemData.ItemType.Demon)
+        {
+            if (ItemDic["DMGBuff_Demon"].Item2.activeSelf)
+            { 
+                int dmgBuffLevel = GetLevel("DMGBuff_Demon"); 
+                return (itemData.baseDamage + (itemData.baseDamage * itemData.damages[level - 1])) * ItemDic["DMGBuff_Demon"].Item1.damages[dmgBuffLevel - 1];
+            }
+            else
+            {
+                return itemData.baseDamage + (itemData.baseDamage * itemData.damages[level - 1]);
+            }
+        }
+
+        return 0f;
+    }
+
+    private void ResistActiveList(Weapon weapon, ItemData itemData)
+    {
+        if (itemData.itemType == ItemData.ItemType.Angel)
+        {
+            AngelWeapons.Add(weapon);
+        }
+        else if (itemData.itemType == ItemData.ItemType.Demon)
+        {
+            DemonWeapons.Add(weapon);
+        }
+    }
+    
     public void LevelUpdate(string itemType) // 외부에서 사용할 아이템 레벨업 시 State 업데이트 해주는 메서드
     {
         var itemInfo = GetDicValue(itemType);
@@ -101,28 +148,35 @@ public class WeaponManager : Singleton<WeaponManager>
             {
                 // !! 기어 추가시 로직 변경 필요
                 weapon.name = itemData.itemName;
-                weapon.damage = itemData.baseDamage + (itemData.baseDamage * itemData.damages[level - 1]);
+                weapon.damage = CalculateDamage(itemData, level);
                 weapon.count = itemData.baseCount + itemData.counts[level - 1];
                 weapon.speed = itemData.speed;
                 weapon.attackDistance = itemData.distance;
                 weapon.cooldown = itemData.cooldown;
                 weapon.duration = itemData.duration;
                 weapon.LevelUpSetting(); // !! 한프레임에 작동 안할 경우 오류 일어날 수 있음을 생각 = 작동 하는거 같음
+
+                if (level == 1) // 무기 장착 순간이라면
+                {
+                    ResistActiveList(weapon, itemData);
+                }
             }
             else if (itemComponent is Gear gear)
             {
-                gear.Rate = itemData.baseDamage + (itemData.baseDamage * itemData.damages[level - 1]);
-                // 이하에 현재 작동중인 무기 전역에 영향을 끼칠 로직 작성
+                gear.rate = itemData.damages[level - 1];
+                gear.UpgradeBroadcast();
             }
             else
             {
                 Debug.LogWarning("아이템이 Weapon 또는 Gear 타입이 아닙니다.");
             }
 
-            if (level > 6)
+            if (level > 6) // !!! 여기에 7레벨 된 무기들 리스트에 추가하는 로직 짜고, 합성 가능한 아이템이 있는지 확인하는 로직 짜기
             {
-                ItemDic.Remove(itemType);
+                ItemDic.Remove(itemType); 
             }
+            
+            Debug.Log($"{itemType} 레벨 업");
         }
     }
 
@@ -173,7 +227,7 @@ public class WeaponManager : Singleton<WeaponManager>
         return selectedItems;
     }
 
-    private List<ItemData> GetItemsByType(ItemData.ItemType type)
+    private List<ItemData> GetItemsByType(ItemData.ItemType type) 
     {
         List<ItemData> items = new List<ItemData>();
         foreach (var item in ItemDic.Values)
@@ -199,4 +253,29 @@ public class WeaponManager : Singleton<WeaponManager>
             angelProbability = 1f - demonProbability;
         }
     }
+    
+    // Gear BroadCast 로직들
+    public void Broadcast_DMGBUff_Angel(float rate)
+    {
+        foreach (var weapon in AngelWeapons)
+        {
+            ItemData itemData = ItemDic[weapon.name].Item1;
+            int level = GetLevel(weapon.name);
+            weapon.damage = (itemData.baseDamage + (itemData.baseDamage * itemData.damages[level - 1])) * rate;
+            weapon.LevelUpSetting();
+        }
+    }
+    
+    public void Broadcast_DMGBUff_Demon(float rate)
+    {
+        foreach (var weapon in DemonWeapons)
+        {
+            ItemData itemData = ItemDic[weapon.name].Item1;
+            int level = GetLevel(weapon.name);
+            weapon.damage = (itemData.baseDamage + (itemData.baseDamage * itemData.damages[level - 1])) * rate;
+            weapon.LevelUpSetting();
+        }
+    }
+    
+    // 나중에 무기 합성해서 사라질 때 모든 리스트 및 딕셔너리에서 제거하는 로직도 짜야할듯
 }

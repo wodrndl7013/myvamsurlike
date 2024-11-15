@@ -32,7 +32,7 @@ public class BasicWeapon_Bullet : BasicWeapon
         }
     }
     
-    private void Update()
+    private void FixedUpdate()
     {
         if (isMoving)
         {

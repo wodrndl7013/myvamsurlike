@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: AutoBullet
   m_EditorClassIdentifier: 
   itemName: AutoBullet
-  itemtype: 0
+  itemType: 0
   itemIcon: {fileID: 21300000, guid: 80cac850c7b527847aeba4a3726a16ef, type: 3}
   baseDamage: 10
-  baseCount: 1
+  baseCount: 3
   speed: 20
-  distance: 15
+  distance: 20
   cooldown: 2
   duration: 0
   damages:
@@ -29,4 +29,5 @@ MonoBehaviour:
   - 0.3
   - 0.4
   - 0.5
-  counts: 00000000000000000000000001000000010000000100000002000000
+  counts: 00000000000000000000000002000000020000000200000004000000
+  itemExplain: "\uC5EC\uB7EC \uAC08\uB798\uB85C \uBC1C\uC0AC\uB418\uB294 \uD654\uC0B4"
