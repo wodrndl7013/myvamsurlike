@@ -33,19 +33,22 @@ public class Weapon_ContinuousDamage : Weapon
         }
     }
 
-    private IEnumerator CheckTriggerPeriodically(float effectDuration) // 1초 간격으로 지속적으로 AOE 위에 있는 몬스터를 감지해 데미지를 적용
+    private IEnumerator CheckTriggerPeriodically(float effectDuration) // 1초 간격으로 지속적으로 AOE 위에 있는 몬스터를 감지해 데미지를 적용 및 속도 느리게 함
     {
         float elapsed = 0f;
-        while (elapsed < effectDuration)
+        while (elapsed < effectDuration * 10f)
         {
             foreach (var collider in collidersInTrigger)
             {
                 IDamageable monster = collider.GetComponent<IDamageable>();
                 if (monster != null)
-                    monster.GetDamaged(damage);
+                {
+                    monster.GetDamaged(damage * 0.1f);
+                    monster.GetSlowed(1f);
+                }
             }
 
-            yield return new WaitForSeconds(1f); // 1초 간격으로 대미지 적용
+            yield return new WaitForSeconds(0.1f); // 1초 간격으로 대미지 적용
             elapsed += 1f;
         }
 
@@ -64,4 +67,3 @@ public class Weapon_ContinuousDamage : Weapon
         collidersInTrigger.Clear();
     }
 }
-

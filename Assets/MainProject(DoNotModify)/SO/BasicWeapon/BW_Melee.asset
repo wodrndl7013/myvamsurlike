@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BW_Melee
   m_EditorClassIdentifier: 
   objectTypeName: BW_Melee
-  prefab: {fileID: 8407444380026563546, guid: 782937461ad88d142804998e0d70e632, type: 3}
+  prefab: {fileID: 3343026316755707145, guid: d4dadb489b7b1f5448a16e87de7bfdb0, type: 3}
   poolSize: 10

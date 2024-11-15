@@ -44,7 +44,7 @@ public class TimerManager : MonoBehaviour
                 SpawnBoss();
             }
 
-            if (currentTime % 20 == 0 && !alreadyExistBoss) // 2분마다 엘리트 소환, 16분까지 = 총 8명
+            if (currentTime % 120 == 0 && !alreadyExistBoss) // 2분마다 엘리트 소환, 16분까지 = 총 8명
             {
                 SpawnElite();
             }

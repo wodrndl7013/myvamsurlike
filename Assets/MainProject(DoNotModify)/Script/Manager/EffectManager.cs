@@ -5,7 +5,7 @@ using UnityEngine;
 public enum EffectType
 {
     None,
-    A,
+    Explosion,
     B
 }
 

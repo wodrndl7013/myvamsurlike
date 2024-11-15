@@ -16,6 +16,8 @@ public class Monster : CharacterBase<FSM_Monster>, IMonsterType, IDamageable
     public event Action OnDestroyed; // 이벤트 정의
    
     [NonSerialized]public bool isDead = false;
+    
+    private bool isSlowed = false;
 
     void Awake()
     {
@@ -57,10 +59,24 @@ public class Monster : CharacterBase<FSM_Monster>, IMonsterType, IDamageable
         _rb.MovePosition(_rb.position + nextVec);
     }
 
+    public void GetSlowed(float time)
+    {
+        if (!isSlowed) StartCoroutine(Slowed(time));
+    }
+    
+    IEnumerator Slowed(float time)
+    {
+        isSlowed = true;
+        float originSpeed = Speed;
+        Speed *= 0.5f;
+        yield return new WaitForSeconds(time);
+        Speed = originSpeed;
+        isSlowed = false; // 슬로우 효과 종료 후 플래그 초기화
+    }
+    
     public void GetDamaged(float damage)
     {
         currentHp -= damage;
-        Debug.Log($"남은 HP {currentHp}");
         
         if (currentHp <= 0 && !isDead)
         {

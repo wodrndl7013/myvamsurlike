@@ -12,6 +12,11 @@ public class BasicWeapon_Melee : BasicWeapon
         base.Awake();
     }
 
+    private void OnEnable()
+    {
+        StartCoroutine(WaitAndExecute(0.1f));
+    }
+
     public override void SetPositionInfo(Vector3 mousePos, Vector3 spawnPos) // 무기 스폰 위치
     {
         startPosition = spawnPos;
@@ -19,30 +24,10 @@ public class BasicWeapon_Melee : BasicWeapon
         isMoving = true;
     }
     
-    private void MoveTowardsTarget() // 무기 이동 로직
-    {
-        // 처음 설정된 방향으로 이동
-        transform.position += moveDirection * (Info.Speed * Time.deltaTime);
-
-        // 지정된 AttackDistance만큼 이동했으면 풀로 반환
-        if (Vector3.Distance(startPosition, transform.position) >= Info.AttackDistance)
-        {
-            isMoving = false;
-            StartCoroutine(WaitAndExecute());
-        }
-    }
     
-    IEnumerator WaitAndExecute()// 0.5초 대기 후 풀로 리턴
+    IEnumerator WaitAndExecute(float time)// 대기 후 풀로 리턴
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(time);
         ObjectPoolManager.Instance.ReturnToPool(projectileType, gameObject);
-    }
-    
-    private void Update()
-    {
-        if (isMoving)
-        {
-            MoveTowardsTarget();
-        }
     }
 }

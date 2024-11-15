@@ -17,6 +17,10 @@ public class Player : CharacterBase<FSM_Player>
     public float BWCooltime; // 장착된 무기에 설정된 쿨타임 참조 변수
     public float currentCooltime; // 실제 쿨타임을 관장할 변수
     
+    public float AttackDistance;
+    public float Damage;
+    public float Speed;
+    
     // HP 관련 필드 추가
     public float maxHealth = 100f; // 최대 HP
     private float currentHealth;   // 현재 HP
@@ -83,13 +87,19 @@ public class Player : CharacterBase<FSM_Player>
         GameManager.Instance.GameOver();
     }
     
-    // !!!! 10.19 수정 !!!!
     private void SettingBW() // 인스펙터에서 설정된 BW 에 기반하여 쿨타임 설정
     {
         BWCooltime = currentBW.Info.Cooltime;
         currentBW.projectileType = currentBW.projectileData.objectTypeName; // 프리팹에서 설정이 잘못되어 있을 경우를 방지
     }
-    // !!!! 수정 종료 !!!!
+
+    public void SettingBWValue(float attackDistance, float cooltime, float damage, float speed)
+    {
+        AttackDistance = attackDistance;
+        BWCooltime = cooltime;
+        Damage = damage;
+        Speed = speed;
+    }
     
     public bool IsCooltiming() // 쿨타임 중인지 확인
     {

@@ -38,10 +38,7 @@ public class TriggerEnter : MonoBehaviour
         // 충돌 중일 때 지속적으로 데미지를 입힘
         while (other != null && other.gameObject.activeInHierarchy)
         {
-            if (_player != null)
-            {
-                _player.TakeDamage(damageAmount); // 플레이어에게 데미지 전달
-            }
+            _player.TakeDamage(damageAmount); // 플레이어에게 데미지 전달
 
             yield return new WaitForSeconds(damageInterval); // 데미지 간격 대기
         }

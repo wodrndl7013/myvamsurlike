@@ -21,6 +21,8 @@ public class ItemData : ScriptableObject
     
     public float[] damages; // 레벨마다 증가할 데미지 백분율
     public int[] counts; // 레벨마다 추가될 생성 숫자
+
+    public string itemExplain;
     
     private void Awake()
     {
