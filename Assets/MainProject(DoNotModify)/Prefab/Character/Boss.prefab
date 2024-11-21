@@ -162,7 +162,6 @@ MonoBehaviour:
     type: 3}
   BSCooltime: 0
   currentCooltime: 0
-  hitSoundKey: MonsterHit
 --- !u!114 &8232326426742921262
 MonoBehaviour:
   m_ObjectHideFlags: 0

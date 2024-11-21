@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Monster_13
   m_EditorClassIdentifier: 
   objectTypeName: Monster_13
-  prefab: {fileID: 5095609764936527374, guid: f0db900660a5e784598b5ed6de195a29, type: 3}
+  prefab: {fileID: 5095609764936527374, guid: c7709d0b97e2d7249b10bb0483e7ab54, type: 3}
   poolSize: 600
