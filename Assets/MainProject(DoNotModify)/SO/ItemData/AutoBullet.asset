@@ -17,8 +17,8 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 80cac850c7b527847aeba4a3726a16ef, type: 3}
   baseDamage: 10
   baseCount: 3
-  speed: 20
-  distance: 20
+  speed: 25
+  distance: 25
   cooldown: 2
   duration: 0
   damages:

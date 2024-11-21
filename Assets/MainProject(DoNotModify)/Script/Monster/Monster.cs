@@ -61,7 +61,8 @@ public class Monster : CharacterBase<FSM_Monster>, IMonsterType, IDamageable
 
     public void GetSlowed(float time)
     {
-        if (!isSlowed) StartCoroutine(Slowed(time));
+        if (!isSlowed && gameObject.activeInHierarchy) 
+            StartCoroutine(Slowed(time));
     }
     
     IEnumerator Slowed(float time)

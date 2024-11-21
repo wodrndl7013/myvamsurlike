@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: AutoBullet
   m_EditorClassIdentifier: 
   objectTypeName: AutoBullet
-  prefab: {fileID: 1991352674173278652, guid: 2e14b8b6dd0aa454bb3150205667240e, type: 3}
+  prefab: {fileID: 5070725085419560062, guid: 93c9f08004318e843b24eff54bbbf54a, type: 3}
   poolSize: 5

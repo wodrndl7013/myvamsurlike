@@ -20,7 +20,7 @@ public class Weapon_Tenbatsu : Weapon
                 
                 InputValue(spawnWeapon);
 
-                StartCoroutine(WaitForReturn(spawnWeapon, 0.5f));
+                StartCoroutine(WaitForReturn(spawnWeapon, 4.5f));
 
             }
             yield return new WaitForSeconds(cooldown);

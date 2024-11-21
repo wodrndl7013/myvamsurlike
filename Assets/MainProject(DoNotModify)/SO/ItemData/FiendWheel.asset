@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FiendWheel
   m_EditorClassIdentifier: 
   itemName: FiendWheel
-  itemType: 0
+  itemType: 1
   itemIcon: {fileID: 21300000, guid: 6d295b60e739cac42a9b946129eb8252, type: 3}
   baseDamage: 5
   baseCount: 3

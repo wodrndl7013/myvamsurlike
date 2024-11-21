@@ -18,7 +18,7 @@ MonoBehaviour:
   baseDamage: 15
   baseCount: 3
   speed: 0
-  distance: 20
+  distance: 15
   cooldown: 5
   duration: 0
   damages:

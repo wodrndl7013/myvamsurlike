@@ -16,7 +16,7 @@ MonoBehaviour:
   itemType: 1
   itemIcon: {fileID: 0}
   baseDamage: 10
-  baseCount: 5
+  baseCount: 7
   speed: 0
   distance: 0
   cooldown: 3

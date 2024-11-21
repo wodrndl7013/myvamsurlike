@@ -5,10 +5,10 @@ using UnityEngine;
 public class Weapon_FiendWheel : Weapon
 {
     public GameObject FiendWheelPrefab;
-    public float orbitRadius = 2f;
-    public float orbitSpeed = 2f;
-    public float pulsateSpeed = 1f;
-    public float pulsateAmount = 0.5f;
+    public float orbitRadius = 4f; // 오브젝트가 플레이어로부터 배치되는 반경
+    public float orbitSpeed = 4f; // 공전 속도
+    public float pulsateSpeed = 2f; // 반경 변화 속도
+    public float pulsateAmount = 1f; // 반경 변화 진폭
 
     private GameObject[] RotateWeaponPrefabs;
     private float[] angleOffsets;

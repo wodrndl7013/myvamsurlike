@@ -15,7 +15,7 @@ public class FSM_PlayerState_Idle : VMyState<FSM_PlayerState>
 
     protected override void EnterState()
     {
-        
+        //_player._animator.SetBool("IsMoving", false); // 이동 애니메이션 중지
     }
     
     protected override void ExcuteState()

@@ -15,6 +15,11 @@ public class FSM_PlayerState_Skill : VMyState<FSM_PlayerState>
 
     protected override void EnterState()
     {
+        if (_player._animator != null)
+        {
+            _player._animator.CrossFade(Player.AttackHash, 0.0f); // 공격 애니메이션 실행
+        }
+        
         // 오브젝트 스폰
         GameObject spawnWeapon = ObjectPoolManager.Instance.SpawnFromPool(_player.currentBW.projectileType, transform.position, Quaternion.identity);
         BasicWeapon bw = spawnWeapon.GetComponent<BasicWeapon>();

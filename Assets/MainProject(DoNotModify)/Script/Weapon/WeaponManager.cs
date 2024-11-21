@@ -18,8 +18,8 @@ public class WeaponManager : Singleton<WeaponManager>
     private Dictionary<string, (ItemData, GameObject)> ItemDic = new Dictionary<string, (ItemData, GameObject)>(); // 프리팹과 데이터를 연결시켜주는 Dic
     public Player _player;
     
-    private float angelProbability = 0.5f; // 초기 확률 50%
-    private float demonProbability = 0.5f;
+    private float angelProb = 0.5f; // 초기 확률 50%
+    private float demonProb = 0.5f;
 
     // Gear를 위한 타입별 활성화된 무기 리스트
     private List<Weapon> AngelWeapons = new();
@@ -198,7 +198,7 @@ public class WeaponManager : Singleton<WeaponManager>
             float randomValue = (float)rng.NextDouble();
             List<ItemData> possibleItems;
 
-            if (randomValue < angelProbability && availableAngelItems.Count > 0)
+            if (randomValue < angelProb && availableAngelItems.Count > 0)
             {
                 possibleItems = availableAngelItems;
             }
@@ -240,18 +240,23 @@ public class WeaponManager : Singleton<WeaponManager>
     
     public void AdjustProbabilities(ItemData.ItemType selectedType) // 선택된 타입에 따라 확률 조정
     {
-        float adjustmentFactor = 0.05f; // 확률 조정 정도
+        float adjustmentFactor = 0.05f; // 확률 조정 정도 
+        float minProb = 0.1f; // 최소 확률
 
         if (selectedType == ItemData.ItemType.Angel)
         {
-            angelProbability = Mathf.Min(angelProbability + adjustmentFactor, 1f);
-            demonProbability = 1f - angelProbability;
+            angelProb = Mathf.Clamp(angelProb + adjustmentFactor, minProb, 1 - minProb);
+            demonProb = 1f - angelProb;
+            Debug.Log($"천사 : {angelProb}, 악마 : {demonProb}");
         }
         else if (selectedType == ItemData.ItemType.Demon)
         {
-            demonProbability = Mathf.Min(demonProbability + adjustmentFactor, 1f);
-            angelProbability = 1f - demonProbability;
+            demonProb = Mathf.Clamp(demonProb + adjustmentFactor, minProb, 1 - minProb);
+            angelProb = 1f - demonProb;
+            Debug.Log($"천사 : {angelProb}, 악마 : {demonProb}");
         }
+
+        EclipseManager.Instance.CheckingEclipse(angelProb);
     }
     
     // Gear BroadCast 로직들
