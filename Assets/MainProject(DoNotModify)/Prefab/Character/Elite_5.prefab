@@ -193,11 +193,4 @@ MonoBehaviour:
   Speed: 3
   Hp: 10
   currentHp: 0
-  timerManager: {fileID: 3326359755480705110, guid: 458e967fccf5cf1439869549cdd3d2da,
-    type: 3}
-  experienceOrbPrefab_Basic: {fileID: 4749133599325314318, guid: 32d55fc13ebd7cf42bbaacf9e92404b5,
-    type: 3}
-  experienceOrbPrefab_Advanced: {fileID: 4749133599325314318, guid: fea0542663bb47e4baa5f0b793f46428,
-    type: 3}
-  experienceOrbPrefab_Premium: {fileID: 4749133599325314318, guid: 8befb2264d60235479961c66641bbdaa,
-    type: 3}
+  hitSoundKey: MonsterHit

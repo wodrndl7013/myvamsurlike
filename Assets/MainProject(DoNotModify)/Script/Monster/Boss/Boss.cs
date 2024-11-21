@@ -19,6 +19,9 @@ public class Boss : CharacterBase<FSM_Boss>, IDamageable
     public float currentCooltime; // 실제 쿨타임의 변화를 측정할 변수
     
     private bool isSlowed = false;
+    
+    public string hitSoundKey;   // 몬스터 피격 사운드 키
+
 
     void Awake()
     {
@@ -61,6 +64,11 @@ public class Boss : CharacterBase<FSM_Boss>, IDamageable
     public void GetDamaged(float damage)
     {
         currentHp -= damage;
+        // 피격 사운드 재생
+        if (!string.IsNullOrEmpty(hitSoundKey))
+        {
+            SoundManager.Instance.PlaySound(hitSoundKey);
+        }
         Debug.Log($"남은 HP {currentHp}");
     }
     

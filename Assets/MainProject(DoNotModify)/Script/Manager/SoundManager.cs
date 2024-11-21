@@ -1,88 +1,126 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.UI;
 
-public enum SoundType
+public class SoundManager : MonoBehaviour
 {
-    None,
-    A,
-    B
-}
+    public static SoundManager Instance { get; private set; } // 싱글톤 인스턴스
 
-[System.Serializable]
-public class Sound
-{
-    public SoundType type;
-    public AudioClip audioClip;
-}
+    [Header("Sound Data")]
+    public List<SoundData> soundDataList; // SoundData를 직접 Inspector에 추가
 
-public class SoundManager : Singleton<SoundManager>
-{
-    public List<Sound> audioList;
+    private Dictionary<string, AudioClip> audioDictionary = new Dictionary<string, AudioClip>();
+    public AudioSource bgmSource; // 배경음악 AudioSource
+    public AudioSource sfxSource; // 효과음 AudioSource
 
-    private Dictionary<SoundType, AudioClip> audios = new Dictionary<SoundType, AudioClip>();
-    private AudioSource audioSource;
-    public AudioSource bgmSource; // 배경음악 AudioSource Lee 추가 2024.10.22
-    public AudioSource sfxSource; // 효과음 AudioSource Lee 추가 2024.10.22
-    
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
+        if (Instance == null)
         {
-            audioSource = gameObject.AddComponent<AudioSource>();
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
         }
 
-        foreach (var sound in audioList)
+        // SoundData 초기화
+        InitializeSoundData();
+
+        // 초기 볼륨 로드
+        LoadVolumeSettings();
+    }
+
+    private void InitializeSoundData()
+    {
+        foreach (var soundData in soundDataList)
         {
-            if (!audios.ContainsKey(sound.type))
+            if (!audioDictionary.ContainsKey(soundData.key))
             {
-                audios.Add(sound.type, sound.audioClip);
+                audioDictionary.Add(soundData.key, soundData.audioClip);
             }
         }
     }
 
-    public void PlaySound(SoundType type)
+    public void PlaySound(string key)
     {
-        if (audios.ContainsKey(type))
+        if (audioDictionary.ContainsKey(key))
         {
-            audioSource.PlayOneShot(audios[type]);
+            sfxSource.PlayOneShot(audioDictionary[key]);
         }
         else
         {
-            Debug.LogWarning("Sound not found: " + type);
+            Debug.LogWarning($"Sound with key '{key}' not found.");
         }
     }
 
-    public void PlayRandomSound(SoundType[] soundTypes) // 입력된 타입 중에서 무작위로 사운드를 재생
+    public void PlayBGM(AudioClip clip)
     {
-        if (soundTypes.Length == 0)
+        if (bgmSource != null && clip != null)
         {
-            Debug.LogWarning("No SoundType provided");
-            return;
+            bgmSource.clip = clip;
+            bgmSource.loop = true;
+            bgmSource.Play();
         }
-
-        // 무작위로 SoundType 선택
-        SoundType randomType = soundTypes[UnityEngine.Random.Range(0, soundTypes.Length)];
-
-        // 선택된 SoundType의 사운드 재생
-        PlaySound(randomType);
     }
-    
-    public void SetBGMVolume(float volume) //Lee 추가 2024.10.22
+
+    public void SetBGMVolume(float volume)
     {
         if (bgmSource != null)
         {
             bgmSource.volume = volume;
+            SaveVolumeSettings();
         }
     }
-    
-    public void SetSFXVolume(float volume) //Lee 추가 2024.10.22
+
+    public void SetSFXVolume(float volume)
     {
         if (sfxSource != null)
         {
             sfxSource.volume = volume;
+            SaveVolumeSettings();
+        }
+    }
+
+    public void BindSliders(Slider sfxSlider, Slider bgmSlider)
+    {
+        if (sfxSlider != null)
+        {
+            // 슬라이더 초기값 설정
+            sfxSlider.value = sfxSource.volume;
+
+            // 슬라이더 값 변경 시 호출될 이벤트 연결
+            sfxSlider.onValueChanged.AddListener(SetSFXVolume);
+        }
+
+        if (bgmSlider != null)
+        {
+            // 슬라이더 초기값 설정
+            bgmSlider.value = bgmSource.volume;
+
+            // 슬라이더 값 변경 시 호출될 이벤트 연결
+            bgmSlider.onValueChanged.AddListener(SetBGMVolume);
+        }
+    }
+
+    public void SaveVolumeSettings()
+    {
+        PlayerPrefs.SetFloat("SFXVolume", sfxSource.volume);
+        PlayerPrefs.SetFloat("BGMVolume", bgmSource.volume);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadVolumeSettings()
+    {
+        if (PlayerPrefs.HasKey("SFXVolume"))
+        {
+            SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume"));
+        }
+        if (PlayerPrefs.HasKey("BGMVolume"))
+        {
+            SetBGMVolume(PlayerPrefs.GetFloat("BGMVolume"));
         }
     }
 }

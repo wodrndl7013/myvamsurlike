@@ -18,6 +18,8 @@ public class Monster : CharacterBase<FSM_Monster>, IMonsterType, IDamageable
     [NonSerialized]public bool isDead = false;
     
     private bool isSlowed = false;
+    
+    public string hitSoundKey;   // 몬스터 피격 사운드 키
 
     void Awake()
     {
@@ -78,6 +80,12 @@ public class Monster : CharacterBase<FSM_Monster>, IMonsterType, IDamageable
     public void GetDamaged(float damage)
     {
         currentHp -= damage;
+        
+        // 피격 사운드 재생
+        if (!string.IsNullOrEmpty(hitSoundKey))
+        {
+            SoundManager.Instance.PlaySound(hitSoundKey);
+        }
         
         if (currentHp <= 0 && !isDead)
         {
