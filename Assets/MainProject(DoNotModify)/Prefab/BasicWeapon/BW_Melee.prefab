@@ -187,6 +187,7 @@ MonoBehaviour:
     Speed: 50
   projectileData: {fileID: 11400000, guid: 6c9483830cba4584aa05859224be5539, type: 2}
   projectileType: BW_Melee
+  Sword: Sword
 --- !u!1 &6838101726932040317
 GameObject:
   m_ObjectHideFlags: 0

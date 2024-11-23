@@ -142,6 +142,7 @@ MonoBehaviour:
   Speed: 3
   Hp: 10
   currentHp: 0
+  hitSoundKey: MonsterHit
 --- !u!1001 &3445724339900318627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -154,21 +155,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Monster13
-      objectReference: {fileID: 0}
-    - target: {fileID: 8511647367374981090, guid: 16a85ccaacfca7447bf0954b13a250b7,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8511647367374981090, guid: 16a85ccaacfca7447bf0954b13a250b7,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8511647367374981090, guid: 16a85ccaacfca7447bf0954b13a250b7,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8511647367374981090, guid: 16a85ccaacfca7447bf0954b13a250b7,
         type: 3}

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Weapon_Tenbatsu : Weapon
 {
+    public string Tenbatsu;
+    public string Tenbatsulaunch;
+
     void Start()
     {
         base.Start();
@@ -16,9 +19,14 @@ public class Weapon_Tenbatsu : Weapon
         {
             for (int i = 0; i < count; i++)
             {
+                // Launch 사운드 재생
+                SoundManager.Instance.PlaySound(Tenbatsulaunch);
+                
                 GameObject spawnWeapon = ObjectPoolManager.Instance.SpawnFromPool(name, GetRandomPosition(), Quaternion.identity);
                 
                 InputValue(spawnWeapon);
+                yield return new WaitForSeconds(2f); // Launch 이후 2초 지연
+                SoundManager.Instance.PlaySound(Tenbatsu);
 
                 StartCoroutine(WaitForReturn(spawnWeapon, 4.5f));
 

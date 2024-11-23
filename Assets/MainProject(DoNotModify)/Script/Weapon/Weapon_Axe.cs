@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Weapon_Axe : Weapon
 {
+    public string Axe;
     void Start()
     {
         base.Start();
@@ -81,7 +82,23 @@ public class Weapon_Axe : Weapon
         
         InputValue(spawnWeapon); // 대미지 전달
         
-        StartCoroutine(MoveWeapon(spawnWeapon, moveDir, startPos));
+        // 무기 오브젝트에 AudioSource를 연결하여 사운드 관리
+        AudioSource audioSource = spawnWeapon.GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = spawnWeapon.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            audioSource.loop = true; // 반복 재생 설정
+        }
+        
+        // 발사 사운드 재생
+        if (SoundManager.Instance != null && !string.IsNullOrEmpty(Axe))
+        {
+            audioSource.clip = SoundManager.Instance.audioDictionary[Axe];
+            audioSource.Play();
+        }
+        
+        StartCoroutine(MoveWeapon(spawnWeapon, moveDir, startPos, audioSource));
         StartCoroutine(RotateY(spawnWeapon));
     }
     
@@ -95,7 +112,7 @@ public class Weapon_Axe : Weapon
         }
     }
 
-    private IEnumerator MoveWeapon(GameObject weapon, Vector3 direction, Vector3 startPos) // 무기 이동 코루틴
+    private IEnumerator MoveWeapon(GameObject weapon, Vector3 direction, Vector3 startPos, AudioSource audioSource) // 무기 이동 코루틴
     {
         while (Vector3.Distance(weapon.transform.position, startPos) <= attackDistance)
         {
@@ -104,10 +121,10 @@ public class Weapon_Axe : Weapon
         }
 
         // 공격 범위를 벗어나면 다시 돌아오는 코루틴 시작
-        StartCoroutine(ComebackWeapon(weapon, playerTransform));
+        StartCoroutine(ComebackWeapon(weapon, playerTransform, audioSource));
     }
 
-    private IEnumerator ComebackWeapon(GameObject weapon, Transform player) // 임계점에 달한 weapon player 에게 회귀
+    private IEnumerator ComebackWeapon(GameObject weapon, Transform player, AudioSource audioSource) // 임계점에 달한 weapon player 에게 회귀
     {
         while (Vector3.Distance(weapon.transform.position, player.position) >= 1)
         {
@@ -115,6 +132,13 @@ public class Weapon_Axe : Weapon
             weapon.transform.position += directionToPlayer * (speed * Time.deltaTime);
             yield return null;
         }
+        
+        // 플레이어에게 돌아오면 사운드 중지
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+        
         ObjectPoolManager.Instance.ReturnToPool(name, weapon);
     }
 }

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: MonsterHit
   m_EditorClassIdentifier: 
   key: MonsterHit
-  audioClip: {fileID: 8300000, guid: e4005ab4213b15d4e91f46334728404d, type: 3}
+  audioClip: {fileID: 8300000, guid: b3935d03ceed5d841ae193c095eccd5f, type: 3}

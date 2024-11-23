@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class Weapon_AutoBullet : Weapon
 {
+    public string AutoBullet; // 발사 사운드 키 추가
     void Start()
     {
         base.Start();
@@ -69,6 +70,12 @@ public class Weapon_AutoBullet : Weapon
 
         float spreadAngle = 5f * count; // 최대 퍼뜨리는 각도
         float angleStep = (spreadAngle * 2) / (count - 1); // 각 탄환 사이의 각도 간격 !!! count 가 0일 경우 버그남. 단, 이 무기는 최소 3발이므로 예외처리 생략하겠음
+        
+        // 발사 사운드 재생
+        if (SoundManager.Instance != null && !string.IsNullOrEmpty(AutoBullet))
+        {
+            SoundManager.Instance.PlaySound(AutoBullet);
+        }
 
         for (int i = 0; i < count; i++)
         {

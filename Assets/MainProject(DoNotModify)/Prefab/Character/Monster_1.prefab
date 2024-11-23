@@ -142,6 +142,7 @@ MonoBehaviour:
   Speed: 3
   Hp: 10
   currentHp: 0
+  hitSoundKey: MonsterHit
 --- !u!1001 &5135129395926549209
 PrefabInstance:
   m_ObjectHideFlags: 0

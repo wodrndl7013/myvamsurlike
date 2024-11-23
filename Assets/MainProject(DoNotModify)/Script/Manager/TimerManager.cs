@@ -39,7 +39,7 @@ public class TimerManager : MonoBehaviour
             spawnValueChanger++;
             UpdateTimerText();
             
-            if (Mathf.Approximately(currentTime, 1140) && !alreadyExistBoss) // 18분일 때 보스 소환 밑 웨이브 고정
+            if (Mathf.Approximately(currentTime, 10) && !alreadyExistBoss) // 18분일 때 보스 소환 밑 웨이브 고정
             {
                 SpawnBoss();
             }

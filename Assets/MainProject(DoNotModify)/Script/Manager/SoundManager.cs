@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
+
 
 public class SoundManager : MonoBehaviour
 {
@@ -9,9 +11,15 @@ public class SoundManager : MonoBehaviour
     [Header("Sound Data")]
     public List<SoundData> soundDataList; // SoundData를 직접 Inspector에 추가
 
-    private Dictionary<string, AudioClip> audioDictionary = new Dictionary<string, AudioClip>();
+    public Dictionary<string, AudioClip> audioDictionary = new Dictionary<string, AudioClip>();
+    [Header("Audio Sources")]
     public AudioSource bgmSource; // 배경음악 AudioSource
     public AudioSource sfxSource; // 효과음 AudioSource
+
+    [Header("Audio Mixer")]
+    public AudioMixer audioMixer; // AudioMixer를 Inspector에 연결
+    public string bgmVolumeParam = "BGMVolume"; // BGM 볼륨 변수 이름
+    public string sfxVolumeParam = "SFXVolume"; // SFX 볼륨 변수 이름
 
     private void Awake()
     {
@@ -55,7 +63,7 @@ public class SoundManager : MonoBehaviour
             Debug.LogWarning($"Sound with key '{key}' not found.");
         }
     }
-
+    
     public void PlayBGM(AudioClip clip)
     {
         if (bgmSource != null && clip != null)
@@ -68,20 +76,17 @@ public class SoundManager : MonoBehaviour
 
     public void SetBGMVolume(float volume)
     {
-        if (bgmSource != null)
-        {
-            bgmSource.volume = volume;
-            SaveVolumeSettings();
-        }
+        // Linear (0.0~1.0) -> dB 변환
+        float dbVolume = Mathf.Log10(Mathf.Clamp(volume, 0.0001f, 1f)) * 20;
+        audioMixer.SetFloat(sfxVolumeParam, dbVolume);
     }
+
 
     public void SetSFXVolume(float volume)
     {
-        if (sfxSource != null)
-        {
-            sfxSource.volume = volume;
-            SaveVolumeSettings();
-        }
+        // Linear (0.0~1.0) -> dB 변환
+        float dbVolume = Mathf.Log10(Mathf.Clamp(volume, 0.0001f, 1f)) * 20;
+        audioMixer.SetFloat(bgmVolumeParam, dbVolume);
     }
 
     public void BindSliders(Slider sfxSlider, Slider bgmSlider)
@@ -89,7 +94,9 @@ public class SoundManager : MonoBehaviour
         if (sfxSlider != null)
         {
             // 슬라이더 초기값 설정
-            sfxSlider.value = sfxSource.volume;
+            float sfxVolume;
+            audioMixer.GetFloat(sfxVolumeParam, out sfxVolume);
+            sfxSlider.value = Mathf.Pow(10, sfxVolume / 20f); // dB -> Linear 변환
 
             // 슬라이더 값 변경 시 호출될 이벤트 연결
             sfxSlider.onValueChanged.AddListener(SetSFXVolume);
@@ -98,7 +105,9 @@ public class SoundManager : MonoBehaviour
         if (bgmSlider != null)
         {
             // 슬라이더 초기값 설정
-            bgmSlider.value = bgmSource.volume;
+            float bgmVolume;
+            audioMixer.GetFloat(bgmVolumeParam, out bgmVolume);
+            bgmSlider.value = Mathf.Pow(10, bgmVolume / 20f); // dB -> Linear 변환
 
             // 슬라이더 값 변경 시 호출될 이벤트 연결
             bgmSlider.onValueChanged.AddListener(SetBGMVolume);
@@ -107,8 +116,12 @@ public class SoundManager : MonoBehaviour
 
     public void SaveVolumeSettings()
     {
-        PlayerPrefs.SetFloat("SFXVolume", sfxSource.volume);
-        PlayerPrefs.SetFloat("BGMVolume", bgmSource.volume);
+        float sfxVolume, bgmVolume;
+        audioMixer.GetFloat(sfxVolumeParam, out sfxVolume);
+        audioMixer.GetFloat(bgmVolumeParam, out bgmVolume);
+
+        PlayerPrefs.SetFloat("SFXVolume", sfxVolume);
+        PlayerPrefs.SetFloat("BGMVolume", bgmVolume);
         PlayerPrefs.Save();
     }
 
@@ -116,11 +129,13 @@ public class SoundManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("SFXVolume"))
         {
-            SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume"));
+            float sfxVolume = PlayerPrefs.GetFloat("SFXVolume");
+            audioMixer.SetFloat(sfxVolumeParam, sfxVolume);
         }
         if (PlayerPrefs.HasKey("BGMVolume"))
         {
-            SetBGMVolume(PlayerPrefs.GetFloat("BGMVolume"));
+            float bgmVolume = PlayerPrefs.GetFloat("BGMVolume");
+            audioMixer.SetFloat(bgmVolumeParam, bgmVolume);
         }
     }
 }

@@ -5,14 +5,17 @@ using UnityEngine;
 
 public class Weapon_MineExplosion : Weapon
 {
+    public String ExplosionSound;
     private void OnEnable()
     {
         SettingScale();
         EffectManager.Instance.PlayEffect(EffectType.Explosion, transform.position);
+        SoundManager.Instance.PlaySound(ExplosionSound);
     }
 
     void OnTriggerEnter(Collider other)
     {
+        
         IDamageable damageable = other.GetComponent<IDamageable>();
         if (damageable != null)
         {

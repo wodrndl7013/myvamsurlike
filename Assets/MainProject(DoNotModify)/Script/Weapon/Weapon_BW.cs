@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Weapon_BW : Weapon
 {
-    public string weapon_BW;
+    public string Sword;
     void Start()
     {
-        SoundManager.Instance.PlaySound(weapon_BW);
+        SoundManager.Instance.PlaySound(Sword);
     }
 
     public override void LevelUpSetting()

@@ -28,8 +28,14 @@ public class ExperienceManager : Singleton<ExperienceManager>
     {
         currentExperience += amount;
 
-        CheckLevelUp();
-        UpdateExperienceBar(); // 경험치 바 업데이트
+        // 경험치 초과 처리 및 레벨업 확인
+        while (currentExperience >= experienceTonextLevel)
+        {
+            LevelUp();
+        }
+
+        // 경험치 바 업데이트
+        UpdateExperienceBar();
     }
     
     // 경험치 바 업데이트 함수
@@ -37,8 +43,27 @@ public class ExperienceManager : Singleton<ExperienceManager>
     {
         if (experienceBar != null)
         {
-            experienceBar.value = (float)currentExperience / experienceTonextLevel;
+            StartCoroutine(AnimateExperienceBar());
         }
+    }
+    
+    // 경험치 바 애니메이션 코루틴
+    private IEnumerator AnimateExperienceBar()
+    {
+        float currentFill = experienceBar.value;
+        float targetFill = (float)currentExperience / experienceTonextLevel;
+
+        float duration = 0.2f; // 애니메이션 시간
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            experienceBar.value = Mathf.Lerp(currentFill, targetFill, elapsed / duration);
+            yield return null;
+        }
+
+        experienceBar.value = targetFill; // 최종 값 보정
     }
     
     // 레벨 텍스트 업데이트 함수
