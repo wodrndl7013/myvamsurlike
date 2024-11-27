@@ -90,8 +90,6 @@ public class ExperienceManager : Singleton<ExperienceManager>
         level++;
         currentExperience -= experienceTonextLevel;
         experienceTonextLevel += 50; // 레벨이 오를 떄마다 더 많은 경험치 필요
-
-        Debug.Log("레벨업! 현재 레벨: " + level);
         
         UpdateExperienceBar(); // 레벨업 후 경험치 바 업데이트
         UpdateLevelText(); // 레벨업 후 레벨 텍스트 업데이트

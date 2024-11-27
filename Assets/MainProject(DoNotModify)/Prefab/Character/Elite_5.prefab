@@ -51,7 +51,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 32832
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -140,9 +140,10 @@ MonoBehaviour:
   monsterType: 1
   target: {fileID: 0}
   Speed: 3
-  Hp: 10
+  Hp: 140
   currentHp: 0
   hitSoundKey: MonsterHit
+  _animator: {fileID: 0}
 --- !u!1001 &8551142903600128148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -151,6 +152,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4272641533298229137}
     m_Modifications:
+    - target: {fileID: 2958174608498288160, guid: 554a9fcca33d2a249a07d18738529f98,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 857035f846c9b694daf4082c6008efc7, type: 2}
     - target: {fileID: 2958174608505178536, guid: 554a9fcca33d2a249a07d18738529f98,
         type: 3}
       propertyPath: m_LocalScale.x

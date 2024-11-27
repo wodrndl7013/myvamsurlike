@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using AYellowpaper.SerializedCollections;
-using AYellowpaper.SerializedCollections.Editor.Search;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Debug = UnityEngine.Debug;
@@ -46,7 +45,6 @@ public class WeaponManager : Singleton<WeaponManager>
                 if (weapon.name == itemData.itemName)
                 {
                     ItemDic[itemData.itemName] = (itemData, weapon);
-                    Debug.Log($"무기 : {weapon.name}, 데이터 : {itemData.itemName} 연결됨");
                     weapon.SetActive(false);
                     break;
                 }
@@ -171,12 +169,10 @@ public class WeaponManager : Singleton<WeaponManager>
                 Debug.LogWarning("아이템이 Weapon 또는 Gear 타입이 아닙니다.");
             }
 
-            if (level > 6) // !!! 여기에 7레벨 된 무기들 리스트에 추가하는 로직 짜고, 합성 가능한 아이템이 있는지 확인하는 로직 짜기
-            {
-                ItemDic.Remove(itemType); 
-            }
-            
-            Debug.Log($"{itemType} 레벨 업");
+            // if (level > 6) // !!! 여기에 7레벨 된 무기들 리스트에 추가하는 로직 짜고, 합성 가능한 아이템이 있는지 확인하는 로직 짜기
+            // {
+            //     ItemDic.Remove(itemType); 
+            // }
         }
     }
 
@@ -190,8 +186,14 @@ public class WeaponManager : Singleton<WeaponManager>
         List<ItemData> selectedItems = new List<ItemData>();
         System.Random rng = new System.Random();
 
-        List<ItemData> availableAngelItems = new List<ItemData>(GetItemsByType(ItemData.ItemType.Angel));
-        List<ItemData> availableDemonItems = new List<ItemData>(GetItemsByType(ItemData.ItemType.Demon));
+        // 조건에 맞는 아이템만 필터링 (레벨이 7 미만인 아이템만 포함)
+        List<ItemData> availableAngelItems = new List<ItemData>(
+            GetItemsByType(ItemData.ItemType.Angel).FindAll(item => itemLeveles[item.itemName] < 7)
+        );
+
+        List<ItemData> availableDemonItems = new List<ItemData>(
+            GetItemsByType(ItemData.ItemType.Demon).FindAll(item => itemLeveles[item.itemName] < 7)
+        );
 
         while (selectedItems.Count < count)
         {
@@ -247,13 +249,11 @@ public class WeaponManager : Singleton<WeaponManager>
         {
             angelProb = Mathf.Clamp(angelProb + adjustmentFactor, minProb, 1 - minProb);
             demonProb = 1f - angelProb;
-            Debug.Log($"천사 : {angelProb}, 악마 : {demonProb}");
         }
         else if (selectedType == ItemData.ItemType.Demon)
         {
             demonProb = Mathf.Clamp(demonProb + adjustmentFactor, minProb, 1 - minProb);
             angelProb = 1f - demonProb;
-            Debug.Log($"천사 : {angelProb}, 악마 : {demonProb}");
         }
 
         EclipseManager.Instance.CheckingEclipse(angelProb);

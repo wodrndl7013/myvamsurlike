@@ -52,13 +52,13 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 32832
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.0427024, y: 2.9536507, z: 1.8424867}
+  m_Size: {x: 2, y: 2, z: 1}
   m_Center: {x: 0.014519406, y: 0.976824, z: 0.31271726}
 --- !u!54 &8268830254420997592
 Rigidbody:
@@ -103,7 +103,7 @@ MonoBehaviour:
   _rb: {fileID: 0}
   target: {fileID: 0}
   Speed: 3
-  Hp: 100
+  Hp: 5000
   currentHp: 0
   BSList:
   - {fileID: 2938567786159126979, guid: f265c1da5003ec3428d8e46c4ebcd493, type: 3}
@@ -112,6 +112,7 @@ MonoBehaviour:
   BSCooltime: 0
   currentCooltime: 0
   hitSoundKey: MonsterHit
+  _animator: {fileID: 0}
 --- !u!114 &8232326426742921262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,6 +225,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2879570664862648150, guid: 365f0f1ac5df3eb4585d8fef97bde699,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7764ac8faa2854c4c9b8a044003c4503, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

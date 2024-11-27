@@ -554,7 +554,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 32896
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -624,6 +624,7 @@ MonoBehaviour:
   - {fileID: 8112838567690104513}
   - {fileID: 7664478964713822956}
   - {fileID: 2806001948440522142}
+  AvatarEffects: []
   _animator: {fileID: 0}
 --- !u!114 &2959626532316433171
 MonoBehaviour:

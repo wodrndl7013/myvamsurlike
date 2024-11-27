@@ -51,7 +51,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 32832
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -140,9 +140,10 @@ MonoBehaviour:
   monsterType: 1
   target: {fileID: 0}
   Speed: 3
-  Hp: 10
+  Hp: 170
   currentHp: 0
   hitSoundKey: MonsterHit
+  _animator: {fileID: 0}
 --- !u!1001 &7394654801402011645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -221,6 +222,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5561321566972492551, guid: ffeffd69266d4f6d845f3938c1a730a5,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 37ae022a0e7732544b2631322887db60, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

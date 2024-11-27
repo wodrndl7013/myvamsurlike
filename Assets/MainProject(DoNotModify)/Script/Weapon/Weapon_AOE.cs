@@ -62,7 +62,8 @@ public class Weapon_AOE : Weapon
         float x = radius * Mathf.Cos(angle);
         float z = radius * Mathf.Sin(angle);
 
-        Vector3 randomPosition = new Vector3(playerTransform.position.x + x, 0.01f, playerTransform.position.z + z);
+        //Vector3 randomPosition = new Vector3(playerTransform.position.x + x, 0.01f, playerTransform.position.z + z);
+        Vector3 randomPosition = new Vector3(playerTransform.position.x + x, 1f, playerTransform.position.z + z);
         return randomPosition;
     }
 }

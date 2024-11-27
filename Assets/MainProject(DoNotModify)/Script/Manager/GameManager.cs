@@ -139,7 +139,6 @@ public class GameManager : Singleton<GameManager>
         {
             Time.timeScale = 1f; // 게임 속도 정상화
             SceneManager.LoadScene(stageName);
-            Debug.Log($"스테이지 {stageName}로 이동");
         }
     }
 
@@ -148,7 +147,6 @@ public class GameManager : Singleton<GameManager>
     {
         Time.timeScale = 1f; // 게임 속도 정상화
         SceneManager.LoadScene("StageSelect");
-        Debug.Log("스테이지 선택 화면으로 이동");
     }
 
     // Game Over 상태 확인 메서드 (다른 스크립트에서 호출 가능)

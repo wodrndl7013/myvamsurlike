@@ -63,6 +63,11 @@ public class SoundManager : MonoBehaviour
             Debug.LogWarning($"Sound with key '{key}' not found.");
         }
     }
+
+    public void PlayExplosionSound()
+    {
+        PlaySound("ExplosionSound");
+    }
     
     public void PlayBGM(AudioClip clip)
     {

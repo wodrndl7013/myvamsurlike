@@ -6,13 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d1e569ac-78f9-426d-9b7c-8331941ba52d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.team15/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.team15/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Asset/Effect/Polygon Arsenal/Upgrades/Polygon Arsenal 2019.4 URP.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Asset/RPGMonsterBundlePolyart/HDRP_URP/CommonStuffs/Materials/PolyartDefault.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/RPGMonsterBundlePolyart/HDRP_URP/CommonStuffs/Materials/PolyartDefault.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Asset/RPGMonsterBundlePolyart/HDRP_URP/CommonStuffs/Materials/Stage.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/RPGMonsterBundlePolyart/HDRP_URP/CommonStuffs/Materials/Stage.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Asset/RPGMonsterBundlePolyart/HDRP_URP/CommonStuffs/Scene/AllTogether.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/RPGMonsterBundlePolyart/HDRP_URP/CommonStuffs/Scene/AllTogether.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Font/GeneralKimJwajin_Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Font/GeneralKimJwajin_Bold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Material/Invisible.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Material/Invisible.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/BasicWeapon/BW_Melee.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/BasicWeapon/BW_Melee.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Asset/Weapons/Art/Weapons/Stylized/Bows/Material_Bows/ArrowQuiver_2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/Weapons/Art/Weapons/Stylized/Bows/Material_Bows/ArrowQuiver_2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Asset/Weapons/Art/Weapons/Stylized/Shields/Material_Shields/Shield2_3_1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/Weapons/Art/Weapons/Stylized/Shields/Material_Shields/Shield2_3_1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Asset/Weapons/Art/Weapons/Stylized/Shields/Material_Shields/ShieldHandle1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Asset/Weapons/Art/Weapons/Stylized/Shields/Material_Shields/ShieldHandle1.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/BossSkill/BS_TimeBomb.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/BossSkill/BS_TimeBomb.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Boss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Boss.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Elite_1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Elite_1.prefab" afterDir="false" />
@@ -36,54 +32,57 @@
       <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Monster_7.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Monster_7.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Monster_8.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Monster_8.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Monster_9.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Monster_9.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Player_Angel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Player_Angel.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Player_Demon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Player_Demon.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Source/Monster13.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Character/Source/Monster13.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Manager/WeaponManager_Demon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/Manager/WeaponManager_Demon.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/UI/AbilityCard.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/UI/AbilityCard.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/UI/SettingsPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Prefab/UI/SettingsPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/Sound/MonsterHit.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/Sound/MonsterHit.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/Sound/weapon_BW.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/Sound/weapon_BW.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Scenes/LobbyScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Scenes/LobbyScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/Aura.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/Aura.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/AutoBullet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/AutoBullet.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/Axe.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/Axe.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/BasicWeapon_Angel.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/BasicWeapon_Angel.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/BasicWeapon_Demon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/BasicWeapon_Demon.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/DMGBuff_Angel.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/DMGBuff_Angel.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/DMGBuff_Demon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/DMGBuff_Demon.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/FiendWheel.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/FiendWheel.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/HellfireLava.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/HellfireLava.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/Mine.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/Mine.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/Tenbatsu.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/Tenbatsu.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/Thunder.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/SO/ItemData/Thunder.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Scenes/Stage1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Scenes/Stage1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/BasicWeapon/BasicWeapon_Melee.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/BasicWeapon/BasicWeapon_Melee.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Exp/ExperienceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Exp/ExperienceManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Json/itemSheet.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Json/itemSheet.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/RewardManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/RewardManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/SettingManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/SettingManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/EffectManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/EffectManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/MonsterSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/MonsterSpawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/SoundManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/TimerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/TimerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/BossSkill/BossSkill_TimeBomb.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/BossSkill/BossSkill_TimeBomb.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Reward/MagnetItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Reward/MagnetItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/WaveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/WaveManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/Boss.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/Boss.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/BossEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/BossEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/BossSkill/timeBomb.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/BossSkill/timeBomb.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/FSM_Boss_Dead.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/FSM_Boss_Dead.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/FSM_Boss_Idle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/FSM_Boss_Idle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/FSM_Boss_Skill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Boss/FSM_Boss_Skill.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/FSM_MonsterState_Dead.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/FSM_MonsterState_Dead.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/FSM_MonsterState_Idle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/FSM_MonsterState_Idle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Monster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Monster/Monster.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Player/PlayerEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Player/PlayerEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Reward/HealItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Reward/HealItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Weapon/WeaponManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Weapon/WeaponManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Weapon/Weapon_AOE.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Weapon/Weapon_AOE.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Weapon/Weapon_AutoBullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Weapon/Weapon_AutoBullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Weapon/Weapon_Axe.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Weapon/Weapon_Axe.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Weapon/Weapon_BW.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Weapon/Weapon_BW.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Weapon/Weapon_Mine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Weapon/Weapon_Mine.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Weapon/Weapon_MineExplosion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Weapon/Weapon_MineExplosion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Weapon/Weapon_MultipleTargetAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Weapon/Weapon_MultipleTargetAttack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Weapon/Weapon_Tenbatsu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Weapon/Weapon_Tenbatsu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Sound/Ghosts - Flint.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Sound/Ghosts - Flint.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Sound/bigswish1.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Sound/bigswish1.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Sound/bigswish2.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Sound/bigswish2.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Sound/bigswish3.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Sound/bigswish3.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Sound/bigswish4.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Sound/bigswish4.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Sound/bigswish5.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Sound/bigswish5.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Sound/button.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Sound/button.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Sound/claw3.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Sound/claw3.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Sound/select.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Sound/select.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Balanced.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-Balanced.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Performant.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-Performant.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneWindows.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneWindows.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/CommonBurstAotSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/CommonBurstAotSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,13 +93,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$USER_HOME$/AppData/Local/Temp/BNZ.67416bd21231cc3d/timeBomb.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/AppData/Local/Temp/BNZ.67416be41232107a/BossSkill_TimeBomb.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AbilityItem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Manager/RewardManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/Player/PlayerHealthBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MainProject(DoNotModify)/Script/UI/StageSelectButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.11/Runtime/UniversalRenderPipeline.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -126,15 +124,23 @@
   },
   &quot;keyToStringList&quot;: {
     &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\wodnr\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\wodnr\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\wodnr\\AppData\\Local\\Symbols\\src&quot;
+      &quot;C:\\Users\\HwangMinSoeng\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\HwangMinSoeng\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\HwangMinSoeng\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Test\Test_Team15.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="G:\Unity" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.30f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="G:\Unity\Unity\Hub\Editor\2022.3.30f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath G:\Class\Git_my\team15 -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="G:\Class\Git_my\team15" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -142,7 +148,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.30f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="G:\Unity\Unity\Hub\Editor\2022.3.30f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath G:\Class\Git_my\team15 -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="G:\Class\Git_my\team15" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -200,6 +206,10 @@
       <workItem from="1732268731967" duration="1834000" />
       <workItem from="1732335718770" duration="8901000" />
       <workItem from="1732347681939" duration="27000" />
+      <workItem from="1732452721939" duration="736000" />
+      <workItem from="1732453506489" duration="9630000" />
+      <workItem from="1732554961496" duration="460000" />
+      <workItem from="1732617809907" duration="3068000" />
     </task>
     <servers />
   </component>

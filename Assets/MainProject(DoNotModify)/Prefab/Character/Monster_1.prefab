@@ -51,7 +51,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 32832
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -143,6 +143,7 @@ MonoBehaviour:
   Hp: 10
   currentHp: 0
   hitSoundKey: MonsterHit
+  _animator: {fileID: 0}
 --- !u!1001 &5135129395926549209
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -216,6 +217,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1691260113314563210, guid: 93907cfdc664f46428f6018cb75a29dd,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9443f2dad5c8b6f4395a228e875771ab, type: 2}
     - target: {fileID: 1997902569578628670, guid: 93907cfdc664f46428f6018cb75a29dd,
         type: 3}
       propertyPath: m_Name
