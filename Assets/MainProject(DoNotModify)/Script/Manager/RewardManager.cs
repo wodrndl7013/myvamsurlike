@@ -10,7 +10,7 @@ public class RewardManager : Singleton<RewardManager>
     public GameObject abilityItemPrefab; // 능력 선택 아이템 프리팹
 
     private const float healthDropRate = 0.01f;   // 회복 아이템 드랍 확률 1%
-    private const float magnetDropRate = 0.001f;  // 자석 아이템 드랍 확률 0.1%
+    private const float magnetDropRate = 0.01f;  // 자석 아이템 드랍 확률 1%
 
     public void DropExperienceOrb(Vector3 position)
     {
@@ -63,13 +63,13 @@ public class RewardManager : Singleton<RewardManager>
     private string DetermineOrbType()
     {
         float currentTime = Time.timeSinceLevelLoad;
-        if (currentTime >= 20)
+        if (currentTime >= 840)
         {
             float randomValue = Random.value;
             if (randomValue <= 0.1f) return "ExperienceOrb_Premium";
             else if (randomValue <= 0.4f) return "ExperienceOrb_Advanced";
         }
-        else if (currentTime >= 10)
+        else if (currentTime >= 420)
         {
             if (Random.value <= 0.3f) return "ExperienceOrb_Advanced";
         }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HealthItem : ItemBase
 {
-    public float healAmount = 20f; // 회복할 체력량
+    public float healAmount = 200f; // 회복할 체력량
 
     protected override void ApplyEffect(GameObject player)
     {

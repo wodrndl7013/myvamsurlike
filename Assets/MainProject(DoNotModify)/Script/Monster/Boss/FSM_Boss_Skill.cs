@@ -17,6 +17,8 @@ public class FSM_Boss_Skill : VMyState<FSM_BossState>
     {
         GameObject spawnSkill = ObjectPoolManager.Instance.SpawnFromPool(_boss.currentBS.projectileType,
             _boss.target.transform.position, Quaternion.identity);
+        
+        _boss._animator.CrossFade(_boss.SkillHash, 0.0f);
     }
 
     protected override void ExcuteState()

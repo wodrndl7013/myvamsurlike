@@ -19,11 +19,21 @@ public class Boss : CharacterBase<FSM_Boss>, IDamageable
     public float currentCooltime; // 실제 쿨타임의 변화를 측정할 변수
     
     private bool isSlowed = false;
+    
+    public string hitSoundKey;   // 몬스터 피격 사운드 키
+
+    public Animator _animator;
+    
+    public readonly int MoveHash = Animator.StringToHash("Idle");
+    public readonly int DeadHash = Animator.StringToHash("Dead");
+    public readonly int SkillHash = Animator.StringToHash("Skill");
 
     void Awake()
     {
         base.Awake();
         FindPlayer();
+
+        _animator = GetComponentInChildren<Animator>();
         currentHp = Hp;
     }
     
@@ -53,15 +63,29 @@ public class Boss : CharacterBase<FSM_Boss>, IDamageable
 
     public void TrackingPlayer()
     {
+        // 이동 로직
         Vector3 dirVec = target.position - _rb.position;
+        dirVec.y = 0; // Y축 제거로 평면에서의 방향 벡터 설정
         Vector3 nextVec = dirVec.normalized * (Speed * Time.fixedDeltaTime);
         _rb.MovePosition(_rb.position + nextVec);
+
+        // 타겟 바라보기 로직 (Y축 제거된 방향 사용)
+        if (dirVec != Vector3.zero) // 방향 벡터가 0이 아닐 때만 회전
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(dirVec); // 평면상의 타겟 방향으로 회전
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * Speed); // 부드럽게 회전
+        }
     }
 
     public void GetDamaged(float damage)
     {
         currentHp -= damage;
-        Debug.Log($"남은 HP {currentHp}");
+        // 피격 사운드 재생
+        // if (!string.IsNullOrEmpty(hitSoundKey))
+        // {
+        //     SoundManager.Instance.PlaySound(hitSoundKey);
+        // }
+        // Debug.Log($"남은 HP {currentHp}");
     }
     
     public void GetSlowed(float time)
@@ -105,7 +129,7 @@ public class Boss : CharacterBase<FSM_Boss>, IDamageable
     {
         StartCoroutine(StartCooltime_Internal());
 
-        ObjectPoolManager.Instance.SpawnFromPool("Skill_A", transform.position, Quaternion.identity);
+        //ObjectPoolManager.Instance.SpawnFromPool("Skill_A", transform.position, Quaternion.identity);
     }
 
     IEnumerator StartCooltime_Internal() // 쿨타임 코루틴

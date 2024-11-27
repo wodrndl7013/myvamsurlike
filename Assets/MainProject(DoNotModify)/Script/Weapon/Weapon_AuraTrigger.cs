@@ -31,7 +31,8 @@ public class Weapon_AuraTrigger : Weapon
     {
         while (true)
         {
-            collidersInTrigger.RemoveAll(collider => !collider.gameObject.activeInHierarchy); // 비활성화되어 풀로 돌아간 몬스터도 리스트에서 제거
+            //collidersInTrigger.RemoveAll(collider => !collider.gameObject.activeInHierarchy); 
+            collidersInTrigger.RemoveAll(collider => collider == null || !collider.gameObject.activeInHierarchy); // 비활성화되어 풀로 돌아간 몬스터 or 디스트로이 된 몬스터 리스트에서 제거
             
             foreach (var collider in collidersInTrigger)
             {

@@ -6,11 +6,7 @@ public class MagnetItem : ItemBase
 {
     protected override void ApplyEffect(GameObject player)
     {
-        StartCoroutine(ActivateMagnetEffect(player.transform));
-    }
-
-    private IEnumerator ActivateMagnetEffect(Transform playerTransform)
-    {
+        // 맵에 있는 경험치 오브만 가져오기
         GameObject[] experienceOrbs = GameObject.FindGameObjectsWithTag("Exp");
 
         foreach (GameObject orb in experienceOrbs)
@@ -21,11 +17,9 @@ public class MagnetItem : ItemBase
                 ExperienceOrb experienceOrb = orb.GetComponent<ExperienceOrb>();
                 if (experienceOrb != null)
                 {
-                    experienceOrb.ActivateMagnetEffect(playerTransform);
+                    experienceOrb.ActivateMagnetEffect(player.transform);
                 }
             }
         }
-
-        yield return null; // 한 프레임 대기
     }
 }

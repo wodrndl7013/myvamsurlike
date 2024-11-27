@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Tenbatsu
   m_EditorClassIdentifier: 
   objectTypeName: Tenbatsu
-  prefab: {fileID: 6340771570864741283, guid: 9b8c907724244354d8953a28e2b5027a, type: 3}
+  prefab: {fileID: 1084386895975847032, guid: 2885f427eceea544f9fb36401732ea18, type: 3}
   poolSize: 5

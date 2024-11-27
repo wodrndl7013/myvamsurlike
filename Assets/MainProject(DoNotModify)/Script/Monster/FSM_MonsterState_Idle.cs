@@ -15,7 +15,7 @@ public class FSM_MonsterState_Idle : VMyState<FSM_MonsterState>
     
     protected override void EnterState()
     {
-        
+        _monster._animator.CrossFade(_monster.MoveHash, 0.0f);
     }
     
     protected override void ExcuteState()

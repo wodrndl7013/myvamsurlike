@@ -15,6 +15,7 @@ public class FSM_Boss_Idle : VMyState<FSM_BossState>
 
     protected override void EnterState()
     {
+        _boss._animator.CrossFade(_boss.MoveHash, 0.0f);
     }
 
     protected override void ExcuteState()

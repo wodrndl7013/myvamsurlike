@@ -18,11 +18,20 @@ public class Monster : CharacterBase<FSM_Monster>, IMonsterType, IDamageable
     [NonSerialized]public bool isDead = false;
     
     private bool isSlowed = false;
+    
+    public string hitSoundKey;   // 몬스터 피격 사운드 키
+    
+    public Animator _animator;
+    
+    public readonly int MoveHash = Animator.StringToHash("Idle");
+    public readonly int DeadHash = Animator.StringToHash("Dead");
 
     void Awake()
     {
         base.Awake();
         FindPlayer();
+        
+        _animator = GetComponentInChildren<Animator>();
         currentHp = Hp;
     }
     
@@ -54,14 +63,24 @@ public class Monster : CharacterBase<FSM_Monster>, IMonsterType, IDamageable
 
     public void TrackingPlayer()
     {
+        // 이동 로직
         Vector3 dirVec = target.position - _rb.position;
+        dirVec.y = 0; // Y축 제거로 평면에서의 방향 벡터 설정
         Vector3 nextVec = dirVec.normalized * (Speed * Time.fixedDeltaTime);
         _rb.MovePosition(_rb.position + nextVec);
+
+        // 타겟 바라보기 로직 (Y축 제거된 방향 사용)
+        if (dirVec != Vector3.zero) // 방향 벡터가 0이 아닐 때만 회전
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(dirVec); // 평면상의 타겟 방향으로 회전
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * Speed); // 부드럽게 회전
+        }
     }
 
     public void GetSlowed(float time)
     {
-        if (!isSlowed) StartCoroutine(Slowed(time));
+        if (!isSlowed && gameObject.activeInHierarchy) 
+            StartCoroutine(Slowed(time));
     }
     
     IEnumerator Slowed(float time)
@@ -78,10 +97,11 @@ public class Monster : CharacterBase<FSM_Monster>, IMonsterType, IDamageable
     {
         currentHp -= damage;
         
-        if (currentHp <= 0 && !isDead)
-        {
-            Die();
-        }
+        // 피격 사운드 재생
+        // if (!string.IsNullOrEmpty(hitSoundKey))
+        // {
+        //     SoundManager.Instance.PlaySound(hitSoundKey);
+        // }
     }
 
     public void Die()
@@ -102,8 +122,6 @@ public class Monster : CharacterBase<FSM_Monster>, IMonsterType, IDamageable
         {
             RewardManager.Instance.DropAbilityItem(transform.position);
         }
-        
-        gameObject.SetActive(false); // Return to pool or disable
     }
     
     // 이벤트를 추가할 수 있는 메서드

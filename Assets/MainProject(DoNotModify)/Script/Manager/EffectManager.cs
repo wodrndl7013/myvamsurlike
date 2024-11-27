@@ -6,7 +6,7 @@ public enum EffectType
 {
     None,
     Explosion,
-    B
+    Explosion2
 }
 
 [System.Serializable]
@@ -101,6 +101,16 @@ public class EffectManager : Singleton<EffectManager>
     {
         if (TryPlayEffect(type, out ParticleSystem ps))
         {
+            PlayFromPool(ps, position);
+            StartCoroutine(DeactivateAfterPlay(ps));
+        }
+    }
+    
+    public void PlayEffectSettingScale(EffectType type, Vector3 position, float scale) // 오브젝트 위치에 이펙트 생성(단발성) & 스케일 설정
+    {
+        if (TryPlayEffect(type, out ParticleSystem ps))
+        {
+            ps.transform.localScale = Vector3.one * scale; // Scale 적용
             PlayFromPool(ps, position);
             StartCoroutine(DeactivateAfterPlay(ps));
         }
