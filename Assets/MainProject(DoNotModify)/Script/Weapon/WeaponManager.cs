@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using AYellowpaper.SerializedCollections;
-using AYellowpaper.SerializedCollections.Editor.Search;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Debug = UnityEngine.Debug;
@@ -18,8 +17,8 @@ public class WeaponManager : Singleton<WeaponManager>
     private Dictionary<string, (ItemData, GameObject)> ItemDic = new Dictionary<string, (ItemData, GameObject)>(); // 프리팹과 데이터를 연결시켜주는 Dic
     public Player _player;
     
-    private float angelProbability = 0.5f; // 초기 확률 50%
-    private float demonProbability = 0.5f;
+    private float angelProb = 0.5f; // 초기 확률 50%
+    private float demonProb = 0.5f;
 
     // Gear를 위한 타입별 활성화된 무기 리스트
     private List<Weapon> AngelWeapons = new();
@@ -46,7 +45,6 @@ public class WeaponManager : Singleton<WeaponManager>
                 if (weapon.name == itemData.itemName)
                 {
                     ItemDic[itemData.itemName] = (itemData, weapon);
-                    Debug.Log($"무기 : {weapon.name}, 데이터 : {itemData.itemName} 연결됨");
                     weapon.SetActive(false);
                     break;
                 }
@@ -171,12 +169,10 @@ public class WeaponManager : Singleton<WeaponManager>
                 Debug.LogWarning("아이템이 Weapon 또는 Gear 타입이 아닙니다.");
             }
 
-            if (level > 6) // !!! 여기에 7레벨 된 무기들 리스트에 추가하는 로직 짜고, 합성 가능한 아이템이 있는지 확인하는 로직 짜기
-            {
-                ItemDic.Remove(itemType); 
-            }
-            
-            Debug.Log($"{itemType} 레벨 업");
+            // if (level > 6) // !!! 여기에 7레벨 된 무기들 리스트에 추가하는 로직 짜고, 합성 가능한 아이템이 있는지 확인하는 로직 짜기
+            // {
+            //     ItemDic.Remove(itemType); 
+            // }
         }
     }
 
@@ -190,15 +186,21 @@ public class WeaponManager : Singleton<WeaponManager>
         List<ItemData> selectedItems = new List<ItemData>();
         System.Random rng = new System.Random();
 
-        List<ItemData> availableAngelItems = new List<ItemData>(GetItemsByType(ItemData.ItemType.Angel));
-        List<ItemData> availableDemonItems = new List<ItemData>(GetItemsByType(ItemData.ItemType.Demon));
+        // 조건에 맞는 아이템만 필터링 (레벨이 7 미만인 아이템만 포함)
+        List<ItemData> availableAngelItems = new List<ItemData>(
+            GetItemsByType(ItemData.ItemType.Angel).FindAll(item => itemLeveles[item.itemName] < 7)
+        );
+
+        List<ItemData> availableDemonItems = new List<ItemData>(
+            GetItemsByType(ItemData.ItemType.Demon).FindAll(item => itemLeveles[item.itemName] < 7)
+        );
 
         while (selectedItems.Count < count)
         {
             float randomValue = (float)rng.NextDouble();
             List<ItemData> possibleItems;
 
-            if (randomValue < angelProbability && availableAngelItems.Count > 0)
+            if (randomValue < angelProb && availableAngelItems.Count > 0)
             {
                 possibleItems = availableAngelItems;
             }
@@ -240,18 +242,21 @@ public class WeaponManager : Singleton<WeaponManager>
     
     public void AdjustProbabilities(ItemData.ItemType selectedType) // 선택된 타입에 따라 확률 조정
     {
-        float adjustmentFactor = 0.05f; // 확률 조정 정도
+        float adjustmentFactor = 0.05f; // 확률 조정 정도 
+        float minProb = 0.1f; // 최소 확률
 
         if (selectedType == ItemData.ItemType.Angel)
         {
-            angelProbability = Mathf.Min(angelProbability + adjustmentFactor, 1f);
-            demonProbability = 1f - angelProbability;
+            angelProb = Mathf.Clamp(angelProb + adjustmentFactor, minProb, 1 - minProb);
+            demonProb = 1f - angelProb;
         }
         else if (selectedType == ItemData.ItemType.Demon)
         {
-            demonProbability = Mathf.Min(demonProbability + adjustmentFactor, 1f);
-            angelProbability = 1f - demonProbability;
+            demonProb = Mathf.Clamp(demonProb + adjustmentFactor, minProb, 1 - minProb);
+            angelProb = 1f - demonProb;
         }
+
+        EclipseManager.Instance.CheckingEclipse(angelProb);
     }
     
     // Gear BroadCast 로직들

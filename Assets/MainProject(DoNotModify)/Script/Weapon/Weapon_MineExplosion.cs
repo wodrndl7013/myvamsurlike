@@ -9,10 +9,12 @@ public class Weapon_MineExplosion : Weapon
     {
         SettingScale();
         EffectManager.Instance.PlayEffect(EffectType.Explosion, transform.position);
+        SoundManager.Instance.PlayExplosionSound();
     }
 
     void OnTriggerEnter(Collider other)
     {
+        
         IDamageable damageable = other.GetComponent<IDamageable>();
         if (damageable != null)
         {

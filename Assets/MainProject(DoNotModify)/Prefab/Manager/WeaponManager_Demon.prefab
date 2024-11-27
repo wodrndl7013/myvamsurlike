@@ -52,6 +52,8 @@ MonoBehaviour:
   cooldown: 0
   duration: 0
   playerTransform: {fileID: 0}
+  Tenbatsu: Tenbatsu
+  Tenbatsulaunch: Tenbatsulaunch
 --- !u!1 &535128131761390865
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,6 +263,7 @@ MonoBehaviour:
   duration: 0
   playerTransform: {fileID: 0}
   Aura: {fileID: 8181947475916844237}
+  AuraEffect: {fileID: 0}
 --- !u!1 &3663233389643627112
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,6 +361,7 @@ MonoBehaviour:
   cooldown: 0
   duration: 0
   playerTransform: {fileID: 0}
+  Thunder: Thunder
 --- !u!1 &5091739680721517568
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,6 +504,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4328533352839046850}
   - component: {fileID: 2626264147183688038}
+  - component: {fileID: 4841687215241255574}
   m_Layer: 0
   m_Name: Mine
   m_TagString: Untagged
@@ -542,6 +547,28 @@ MonoBehaviour:
   cooldown: 0
   duration: 0
   playerTransform: {fileID: 0}
+  MinePlaceSound: MinePlaceSound
+--- !u!114 &4841687215241255574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6655438832132900636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e176c294922e89141b1fd95d879dd015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  damage: 0
+  count: 0
+  speed: 0
+  attackDistance: 0
+  cooldown: 0
+  duration: 0
+  playerTransform: {fileID: 0}
+  ExplosionSound: ExplosionSound
 --- !u!1 &7519369701174897566
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,6 +621,7 @@ MonoBehaviour:
   cooldown: 0
   duration: 0
   playerTransform: {fileID: 0}
+  Sword: 
 --- !u!1 &8181947475916844237
 GameObject:
   m_ObjectHideFlags: 0

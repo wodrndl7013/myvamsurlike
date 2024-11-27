@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Weapon_MultipleTargetAttack : Weapon
 {
+    public string Thunder;
     void Start()
     {
         base.Start();
@@ -74,6 +75,7 @@ public class Weapon_MultipleTargetAttack : Weapon
 
     private void ShotWeapon(GameObject target)
     {
+        SoundManager.Instance.PlaySound(Thunder);
         GameObject spawnWeapon = ObjectPoolManager.Instance.SpawnFromPool(name, target.transform.position, Quaternion.identity);
         
         target.GetComponent<IDamageable>().GetDamaged(damage); // 직접 데미지 가함

@@ -19,10 +19,10 @@ public class MonsterSpawner : Singleton<MonsterSpawner>
     public GameObject boss;
     public List<GameObject> eliteList;
     
-    private List<PooledObjectData> monsterList; // 오브젝트 풀에서 몬스터만 들고 와서 저장
+    public List<PooledObjectData> monsterList; // 오브젝트 풀에서 몬스터만 들고 와서 저장
     // 웨이브마다 소환할 몬스터 두 종류
-    private PooledObjectData monsterA; 
-    private PooledObjectData monsterB;
+    public PooledObjectData monsterA; 
+    public PooledObjectData monsterB;
     // 소환 확률을 결정할 두 변수
     private float spawnRateA = 1f;
     private float spawnRateB = 0f;
@@ -110,22 +110,47 @@ public class MonsterSpawner : Singleton<MonsterSpawner>
     
     public void UpdateSpawnRates(float elapsedWaveTime) // 경과된 시간에 따라 스폰 비율을 변경
     {
-        if (elapsedWaveTime < 30f && firstWave)
+        // if (elapsedWaveTime < 30f && firstWave)
+        // {
+        //     spawnRateA = 1f;
+        //     spawnRateB = 0f;
+        // }
+        // else if (elapsedWaveTime < 30f)
+        // {
+        //     spawnRateA = 3f;
+        //     spawnRateB = 1f;
+        // }
+        // else if (elapsedWaveTime < 90f)
+        // {
+        //     spawnRateA = 2f;
+        //     spawnRateB = 1f;
+        // }
+        // else if (elapsedWaveTime < 150f)
+        // {
+        //     spawnRateA = 1f;
+        //     spawnRateB = 1f;
+        // }
+        // else
+        // {
+        //     spawnRateA = 1f;
+        //     spawnRateB = 2f;
+        // }
+        if (elapsedWaveTime < 20f && firstWave)
         {
             spawnRateA = 1f;
             spawnRateB = 0f;
         }
-        else if (elapsedWaveTime < 30f)
+        else if (elapsedWaveTime < 20f)
         {
             spawnRateA = 3f;
             spawnRateB = 1f;
         }
-        else if (elapsedWaveTime < 90f)
+        else if (elapsedWaveTime < 60f)
         {
             spawnRateA = 2f;
             spawnRateB = 1f;
         }
-        else if (elapsedWaveTime < 150f)
+        else if (elapsedWaveTime < 100f)
         {
             spawnRateA = 1f;
             spawnRateB = 1f;
@@ -196,8 +221,11 @@ public class MonsterSpawner : Singleton<MonsterSpawner>
 
     public void SpawnEliteMonster(int index) // 엘리트 몬스터 소환 로직
     {
-        Vector3 spawnPosition = GetRandomPositionInDonut();
-        GameObject spawnElite = Instantiate(eliteList[index], spawnPosition, Quaternion.identity);
-        AddMonsterDictionary(spawnElite);
+        if (index < eliteList.Count)
+        {
+            Vector3 spawnPosition = GetRandomPositionInDonut();
+            GameObject spawnElite = Instantiate(eliteList[index], spawnPosition, Quaternion.identity);
+            AddMonsterDictionary(spawnElite);
+        }
     }
 }

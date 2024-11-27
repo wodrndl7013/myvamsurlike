@@ -14,4 +14,10 @@ public class timeBomb : MonoBehaviour
             player.TakeDamage(damageAmount);
         }
     }
+    
+    private void OnEnable()
+    {
+        EffectManager.Instance.PlayEffect(EffectType.Explosion2, transform.position);
+        SoundManager.Instance.PlayExplosionSound();
+    }
 }

@@ -54,8 +54,6 @@ public class WaveManager : MonoBehaviour
             // 1분 30초 간격으로 웨이브 발생
             if (elapsedTime >= 90f && (elapsedTime % 90f) < 1f)
             {
-                Debug.Log($"웨이브 시작! 경과 시간: {elapsedTime}s");
-
                 // 현재 패턴에 따라 스폰 실행
                 switch (currentPattern)
                 {
@@ -112,7 +110,6 @@ public class WaveManager : MonoBehaviour
                     // OnDestroyed 이벤트 등록
                     monsterComponent.RegisterOnDestroyed(() =>
                     {
-                        Debug.Log($"Monster 반환: {monster.name}");
                         ObjectPoolManager.Instance.ReturnToPool(monsterPoolType, monster);
                     });
                 }
@@ -198,7 +195,6 @@ public class WaveManager : MonoBehaviour
             {
                 monsterComponent.RegisterOnDestroyed(() =>
                 {
-                    Debug.Log($"Monster 반환: {monster.name}");
                     ObjectPoolManager.Instance.ReturnToPool(monsterPoolType, monster);
                 });
             }
