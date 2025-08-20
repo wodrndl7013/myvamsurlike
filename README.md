@@ -1,6 +1,6 @@
 # 뱀서라이크 (Vampire Survivor-like)
 
-[![시연 영상](asset/thumbnail.png)](https://www.youtube.com/watch?v=WOJ5cdyHEBU)
+[![시연 영상](assets/thumbnail.png)](https://www.youtube.com/watch?v=WOJ5cdyHEBU)
 
 2인 팀 프로젝트로 제작한 액션 디펜스 게임. FSM, 오브젝트 풀, 웨이브 시스템 등을 구현했습니다.
 
