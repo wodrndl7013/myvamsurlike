@@ -1,6 +1,25 @@
-# Team15
+# 뱀서라이크 (Vampire Survivor-like)
 
-[뱀서라이크 시연영상](https://www.youtube.com/watch?v=WOJ5cdyHEBU)
+[![시연 영상](https://img.youtube.com/vi/WOJ5cdyHEBU.jpg)](https://www.youtube.com/watch?v=WOJ5cdyHEBU)
+
+2인 팀 프로젝트로 제작한 액션 디펜스 게임. FSM, 오브젝트 풀, 웨이브 시스템 등을 구현했습니다.
+
+## 주요 기능
+- FSM 기반 플레이어/몬스터 상태관리
+- 오브젝트 풀링으로 성능 최적화
+- 웨이브 패턴 (원형, 대각선 등)
+- 자석 아이템으로 자연스러운 경험치 흡수
+- 기본 경험치 및 레벨업 시스템
+
+## 실행 방법
+1. `git clone ...`
+2. Unity 2022.3.30f1에서 열기
+3. Play 버튼 클릭
+
+## 기술 스택
+- Unity 3D, C#
+- GitHub
+
 
 ## Getting started
 
